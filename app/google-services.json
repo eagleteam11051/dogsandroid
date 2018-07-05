@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "475464400348",
+    "firebase_url": "https://dogs-80baa.firebaseio.com",
+    "project_id": "dogs-80baa",
+    "storage_bucket": "dogs-80baa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475464400348:android:93a9d1b556fffa83",
+        "android_client_info": {
+          "package_name": "com.tbm.dogs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475464400348-n4hneq0f5o5t3p5qrf48hpvjiuudr320.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tbm.dogs",
+            "certificate_hash": "ee2fd68a3ac00b9a7a904ba39b3f727131723ae7"
+          }
+        },
+        {
+          "client_id": "475464400348-s1ojcj8i5f1gskdbujeuoj2d98fg07is.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0vuulZn6ijkilXEGajyWBRA85bB7u3L8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475464400348-s1ojcj8i5f1gskdbujeuoj2d98fg07is.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
