@@ -17,11 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.Login">
-
-        </activity>
-        <activity android:name=".activities.Main" />
-        <activity android:name=".activities.ViecDangCo" />
+        <activity android:name=".activities.login.Login" />
+        <activity android:name=".activities.main.Main" />
+        <activity android:name=".activities.viecdangco.ViecDangCo" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -41,6 +39,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".Services.MyFirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Services.MyFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activities.ViecDangCho" />
+        <activity android:name=".activities.ViecDangLam" />
+        <activity android:name=".activities.ViecDaLam" />
+        <activity android:name=".activities.NotificationDetails"></activity>
     </application>
 
 </manifest>

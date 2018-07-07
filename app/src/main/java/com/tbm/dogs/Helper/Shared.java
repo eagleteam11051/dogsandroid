@@ -9,12 +9,14 @@ public class Shared {
 
     public Shared(Context context) {
         this.context = context;
-        shared = context.getSharedPreferences("login",Context.MODE_PRIVATE);
+        shared = context.getSharedPreferences("dogs",Context.MODE_PRIVATE);
     }
-    public void save(String s){
-        shared.edit().putString("obj",s).apply();
+    public void saveInfoUser(String s){
+        shared.edit().putString("user",s).apply();
     }
-    public String get(){
-        return shared.getString("obj","null");
+    public String getInfoUser(){
+        return shared.getString("user","");
     }
+    public void saveTokenFCM(String token){ shared.edit().putString("tokenfcm",token).apply();}
+    public String getTokenFCM() { return shared.getString("tokenfcm","");}
 }

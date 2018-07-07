@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".activities.Login">
+    tools:context=".activities.login.Login">
 
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
         android:src="@drawable/ic_logo"
         android:layout_centerHorizontal="true"
         />

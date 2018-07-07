@@ -1,13 +1,13 @@
 package com.tbm.dogs.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
 
 import com.tbm.dogs.Helper.Var;
 import com.tbm.dogs.R;
+import com.tbm.dogs.activities.login.Login;
 
 public class LaunchScreen extends AppCompatActivity {
 

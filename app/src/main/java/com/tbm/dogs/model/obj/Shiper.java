@@ -1,6 +1,6 @@
 package com.tbm.dogs.model.obj;
 
-public class ObjLogin {
+public class Shiper {
     String hero_id;
     String fullname;
     String address;
@@ -12,7 +12,7 @@ public class ObjLogin {
     String service_name;
     String token;
 
-    public ObjLogin(String hero_id, String fullname, String address, String mobile, String email, String balance, String image, String gcm_id, String service_name, String token) {
+    public Shiper(String hero_id, String fullname, String address, String mobile, String email, String balance, String image, String gcm_id, String service_name, String token) {
         this.hero_id = hero_id;
         this.fullname = fullname;
         this.address = address;
