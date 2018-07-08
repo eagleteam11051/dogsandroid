@@ -32,11 +32,16 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".activities.LaunchScreen">
+        <activity android:name=".activities.LaunchScreen"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="LAUNCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
@@ -54,7 +59,13 @@
         <activity android:name=".activities.ViecDangCho" />
         <activity android:name=".activities.ViecDangLam" />
         <activity android:name=".activities.ViecDaLam" />
-        <activity android:name=".activities.NotificationDetails"></activity>
+        <activity
+            android:name=".activities.NotificationDetails"
+            android:launchMode="singleTop"
+            >
+
+
+        </activity>
     </application>
 
 </manifest>

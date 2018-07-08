@@ -8,9 +8,9 @@
     tools:context=".activities.LaunchScreen">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launch_screen"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:src="@drawable/ic_logo"
         android:layout_centerInParent="true"
         />
 

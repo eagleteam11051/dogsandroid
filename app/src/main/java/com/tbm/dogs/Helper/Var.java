@@ -1,5 +1,7 @@
 package com.tbm.dogs.Helper;
 
+import android.Manifest;
+
 import com.tbm.dogs.model.obj.Shiper;
 
 public class Var {
@@ -28,4 +30,11 @@ public class Var {
     public static String tokenOther = "";
     public static String currentTokenFCM = "";
     public static Shiper shiper = null;
+    public static final int PermissionAll = 1;
+//    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+//    <uses-permission android:name="android.permission.INTERNET" />
+//    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    public static final String[] permissions = {
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.INTERNET,Manifest.permission.ACCESS_NETWORK_STATE
+    };
 }

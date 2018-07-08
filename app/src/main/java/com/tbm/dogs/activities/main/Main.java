@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import com.tbm.dogs.Helper.Action;
 import com.tbm.dogs.Helper.Shared;
 import com.tbm.dogs.Helper.Var;
 import com.tbm.dogs.R;

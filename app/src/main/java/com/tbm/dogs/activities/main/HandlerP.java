@@ -8,7 +8,7 @@ public class HandlerP {
     }
 
     public void onBackPressed() {
-        if(l>1){
+        if(l>0){
             results.finishApp();
         }else{
             results.tapAgain();

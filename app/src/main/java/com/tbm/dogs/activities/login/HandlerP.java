@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.tbm.dogs.Helper.Var;
@@ -41,6 +40,7 @@ public class HandlerP {
         }
         if(b1 && b2){
             //startActivity(new Intent(this,Main.class));
+            results.showDialog();
             new handlerLogin().execute(Var.API_SIGNIN,"0945333445"/*eUserName.getText().toString()*/,"123456"/*ePassWord.getText().toString()*/,Var.currentTokenFCM);
         }
     }
@@ -78,7 +78,12 @@ public class HandlerP {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            handlerResult(s);
+            results.dismisDialog();
+            if(s==null){
+                results.showConnectError();
+            }else{
+                handlerResult(s);
+            }
         }
     }
     private void handlerResult(String response){
@@ -93,7 +98,7 @@ public class HandlerP {
                 b.putString("user",response1);
                 results.startMain(b);
             }else{
-                results.showError("Đăng nhập bị lỗi, hãy kiểm tra lại!",Toast.LENGTH_LONG);
+                results.showError();
             }
         } catch (JSONException e) {
             e.printStackTrace();

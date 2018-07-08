@@ -7,5 +7,11 @@ public interface Results {
 
     void startMain(Bundle user);
 
-    void showError(String s, int lengthLong);
+    void showError();
+
+    void dismisDialog();
+
+    void showDialog();
+
+    void showConnectError();
 }

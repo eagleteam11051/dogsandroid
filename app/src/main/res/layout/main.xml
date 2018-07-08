@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9E9E9E"
     tools:context=".activities.main.Main">
     <RelativeLayout
         android:id="@+id/layout_profile"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_180sdp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:gravity="bottom"
         >
         <ImageView
@@ -25,7 +26,7 @@
             android:id="@+id/tName"
             android:layout_below="@+id/imgAvatar"
             android:text="Le Van Cong"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"
             android:textSize="@dimen/_20sdp"
@@ -35,14 +36,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/tId"
             android:text="ID: 16"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:layout_alignStart="@+id/tName"
             android:layout_below="@+id/tName"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tMoney"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:text="Tài khoản: 4.000.000$"
             android:layout_alignStart="@+id/tName"
             android:layout_below="@+id/tId"
@@ -51,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tAddress"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:text="Địa chỉ: ICTU, Thái Nguyên"
             android:layout_alignStart="@+id/tName"
             android:layout_below="@+id/tMoney"
@@ -66,21 +67,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_below="@+id/layout_profile"
-        android:layout_marginTop="@dimen/_1sdp"
-
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="#9E9E9E"
+            android:layout_marginBottom="@dimen/_1sdp"
+
             >
             <RelativeLayout
                 android:id="@+id/layout_viec_dang_co"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#4CAF50"
+                android:background="@color/colorWhite"
                 android:layout_weight="1"
+                android:layout_marginRight="@dimen/_1sdp"
                 >
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -97,22 +100,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Việc Đang Có"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDangCo"
                         android:layout_centerHorizontal="true"
                         android:textStyle="bold"
                         android:textSize="@dimen/_15sdp"/>
                 </RelativeLayout>
-
-
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/layout_viec_dang_cho"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#8BC34A"
-
+                android:background="@color/colorWhite"
                 >
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Việc Đang Chờ"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDaBook"
                         android:layout_centerHorizontal="true"
                         android:textStyle="bold"
@@ -142,14 +142,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="#9E9E9E"
             >
             <RelativeLayout
                 android:id="@+id/layout_viec_dang_lam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#3F51B5"
+                android:background="@color/colorWhite"
                 android:layout_weight="1"
-
+                android:layout_marginRight="@dimen/_1sdp"
                 >
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -166,7 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Việc Đang Làm"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDangLam"
                         android:layout_centerHorizontal="true"
                         android:textStyle="bold"
@@ -177,9 +178,8 @@
                 android:id="@+id/layout_viec_da_lam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FDD835"
+                android:background="@color/colorWhite"
                 android:layout_weight="1"
-
                 >
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -196,7 +196,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Việc Đã Làm"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDaLam"
                         android:layout_centerHorizontal="true"
                         android:textStyle="bold"
