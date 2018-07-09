@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gio">
+        <item>0 Tiếng</item>
+        <item>1 Tiếng</item>
+        <item>2 Tiếng</item>
+        <item>3 Tiếng</item>
+        <item>4 Tiếng</item>
+        <item>5 Tiếng</item>
+        <item>6 Tiếng</item>
+        <item>7 Tiếng</item>
+        <item>8 Tiếng</item>
+    </string-array>
+    <string-array name="phut">
+        <item>5 Phút</item>
+        <item>10 Phút</item>
+        <item>15 Phút</item>
+        <item>20 Phút</item>
+        <item>25 Phút</item>
+        <item>30 Phút</item>
+        <item>40 Phút</item>
+        <item>50 Phút</item>
+    </string-array>
+</resources>

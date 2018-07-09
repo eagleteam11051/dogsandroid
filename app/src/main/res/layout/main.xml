@@ -85,6 +85,16 @@
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/_1sdp"
                 >
+                <TextView
+                    android:id="@+id/tNumberTimViec"
+                    android:text="0"
+                    android:textColor="@color/colorRed"
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_24sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,11 +105,11 @@
                         android:layout_height="@dimen/_50sdp"
                         android:layout_centerHorizontal="true"
                         android:id="@+id/imgDangCo"
-                        android:src="@drawable/ic_logo"/>
+                        android:src="@drawable/findjob"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Việc Đang Có"
+                        android:text="Tìm Việc"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDangCo"
                         android:layout_centerHorizontal="true"
@@ -114,6 +124,16 @@
                 android:layout_weight="1"
                 android:background="@color/colorWhite"
                 >
+                <TextView
+                    android:id="@+id/tNumberChoDuyet"
+                    android:text="0"
+                    android:textColor="@color/colorRed"
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_24sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,11 +144,11 @@
                         android:layout_height="@dimen/_50sdp"
                         android:layout_centerHorizontal="true"
                         android:id="@+id/imgDaBook"
-                        android:src="@drawable/ic_logo"/>
+                        android:src="@drawable/booking1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Việc Đang Chờ"
+                        android:text="Đang Chờ Duyệt"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDaBook"
                         android:layout_centerHorizontal="true"
@@ -152,6 +172,16 @@
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/_1sdp"
                 >
+                <TextView
+                    android:id="@+id/tNumberDangLam"
+                    android:text="0"
+                    android:textColor="@color/colorRed"
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_24sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -162,11 +192,11 @@
                         android:layout_height="@dimen/_50sdp"
                         android:layout_centerHorizontal="true"
                         android:id="@+id/imgDangLam"
-                        android:src="@drawable/ic_logo"/>
+                        android:src="@drawable/working"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Việc Đang Làm"
+                        android:text="Đang Làm"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDangLam"
                         android:layout_centerHorizontal="true"
@@ -181,6 +211,16 @@
                 android:background="@color/colorWhite"
                 android:layout_weight="1"
                 >
+                <TextView
+                    android:id="@+id/tNumberDaLam"
+                    android:text="0"
+                    android:textColor="@color/colorRed"
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_24sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -191,11 +231,11 @@
                         android:layout_height="@dimen/_50sdp"
                         android:layout_centerHorizontal="true"
                         android:id="@+id/imgDaLam"
-                        android:src="@drawable/ic_logo"/>
+                        android:src="@drawable/done"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Việc Đã Làm"
+                        android:text="Đã Làm Xong"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_below="@+id/imgDaLam"
                         android:layout_centerHorizontal="true"
