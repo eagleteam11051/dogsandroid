@@ -21,102 +21,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4a214cf-f53e-4873-8947-4a2db1a6eb7f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_2_51_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_2_51_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_2_51_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Action.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Dates.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Maths.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Shared.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseIdService.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseMessaging.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/JobDetails.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/LaunchScreen.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/NotificationDetails.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDaLam.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/HandlerP.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Login.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Results.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Main.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Results.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/adapters/AdapterCongViec.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Shiper.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_sau.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_truoc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_tuchoi.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_sau.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_truoc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_tuchoi.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/booking1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/booking2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/done.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/findjob.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/working.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_booking.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Distance.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Duration.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/HandlerP.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Results.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Route.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/end_green.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/start_blue.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_job_details.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_map_details.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_job_details.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_kjhgfghjkjhgfghjk.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Action.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Shared.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseIdService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseMessaging.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/LaunchScreen.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/NotificationDetails.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDaLam.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/HandlerP.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Login.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Results.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Main.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Results.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/adapters/AdapterCongViec.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Shiper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_da_lam.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_da_lam.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_lam.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_lam.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/group_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/group_layout.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/JobDetails.kt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -152,12 +94,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HandlerP.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt">
+      <file leaf-file-name="ViecDangCo.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="41" column="106" lean-forward="false" selection-start-line="41" selection-start-column="106" selection-end-line="41" selection-end-column="106" />
-              <folding />
+            <state relative-caret-position="150">
+              <caret line="234" column="26" lean-forward="false" selection-start-line="234" selection-start-column="26" selection-end-line="234" selection-end-column="26" />
+              <folding>
+                <element signature="e#4358#4439#0" expanded="false" />
+                <element signature="e#8191#8218#0" expanded="false" />
+                <element signature="e#8276#8303#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,93 +111,77 @@
       <file leaf-file-name="ViecDangCho.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
+            <state relative-caret-position="390">
               <caret line="34" column="46" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdapterCongViec.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/adapters/AdapterCongViec.kt">
+      <file leaf-file-name="HandlerP.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+            <state relative-caret-position="164">
+              <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViecDaLam.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDaLam.kt">
+      <file leaf-file-name="HandlerP.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="34" column="14" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="34" selection-end-column="14" />
+            <state relative-caret-position="426">
+              <caret line="109" column="29" lean-forward="false" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViecDangLam.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.kt">
+      <file leaf-file-name="Results.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JobDetails.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/JobDetails.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_job_details.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
+      <file leaf-file-name="group_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/group_layout.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dates.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Dates.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-              <folding>
-                <element signature="e#29#81#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Main.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Var.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt">
+      <file leaf-file-name="item_row_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_row_layout.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_booking.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_booking.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="105" column="4" lean-forward="false" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -264,9 +194,10 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
-        <option value="layoutResourceFile" />
         <option value="valueResourceFile" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -2424,14 +2355,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_launch_screen.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_edit.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_cho.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/adapters/AdapterCongViec.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_row_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/HandlerP.kt" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Results.kt" />
@@ -2446,9 +2369,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_da_lam.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_lam.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_tuchoi.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
@@ -2457,24 +2377,35 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_sau.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_truoc.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_truoc.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_booking.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/JobDetails.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseMessaging.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Results.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/Main.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Dates.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/adapters/AdapterCongViec.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDaLam.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_job_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_map_details.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/JobDetails.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Distance.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Duration.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Route.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/HandlerP.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Results.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/JobDetails.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_booking.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt" />
       </list>
     </option>
   </component>
@@ -2606,8 +2537,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2754,7 +2683,18 @@
               <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="tbm" type="462c0819:PsiDirectoryNode" />
               <item name="dogs" type="462c0819:PsiDirectoryNode" />
-              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dogsandroid" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="tbm" type="462c0819:PsiDirectoryNode" />
+              <item name="dogs" type="462c0819:PsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="viecdangco" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dogsandroid" type="1abcf292:AndroidViewProjectNode" />
@@ -2764,15 +2704,6 @@
               <item name="tbm" type="462c0819:PsiDirectoryNode" />
               <item name="dogs" type="462c0819:PsiDirectoryNode" />
               <item name="Helper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dogsandroid" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="tbm" type="462c0819:PsiDirectoryNode" />
-              <item name="dogs" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dogsandroid" type="1abcf292:AndroidViewProjectNode" />
@@ -2789,6 +2720,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -2796,19 +2729,25 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
     <property name="device.picker.selection" value="Pixel_XL_API_23" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="android.profiler.active" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.tbm.dogs.activities.jobdetails" />
+    </key>
     <key name="android.template.packageName">
       <recent name="com.tbm.dogs.activities" />
     </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi" />
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi" />
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi" />
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2987,7 +2926,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531068749200</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update 10/7">
+      <created>1531160778065</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1531160778065</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3001,12 +2947,12 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.18325435" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32938388" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32306477" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Material Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938388" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4323077" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4323077" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3014,9 +2960,9 @@
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30923077" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938388" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3033,7 +2979,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="giao dien dang nhap, chi tiet thong bao, get danh sach don hang" />
     <MESSAGE value="hiển thị ds công việc đang có, đang làm, đã làm tương tự, hoàn chỉnh chức năng đăng nhập" />
-    <option name="LAST_COMMIT_MESSAGE" value="hiển thị ds công việc đang có, đang làm, đã làm tương tự, hoàn chỉnh chức năng đăng nhập" />
+    <MESSAGE value="update 10/7" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 10/7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3042,203 +2989,32 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="e#496#512#0" expanded="false" />
-            <element signature="e#543#559#0" expanded="false" />
-            <element signature="e#593#608#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_row_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/LaunchScreen.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseIdService.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/HandlerP.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Login.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Results.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/NotificationDetails.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Shared.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/group_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <element signature="e#408#423#0" expanded="false" />
-            <element signature="e#451#466#0" expanded="false" />
-            <element signature="e#714#729#0" expanded="false" />
-            <element signature="e#760#775#0" expanded="false" />
-            <element signature="e#803#818#0" expanded="false" />
-            <element signature="e#847#861#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_cho.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="16" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_co.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_lam.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_viec_da_lam.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_viec_da_lam.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Shiper.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="134" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="134" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="136" lean-forward="false" selection-start-line="2" selection-start-column="136" selection-end-line="2" selection-end-column="136" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3262,37 +3038,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="8" selection-end-column="8" />
-          <folding>
-            <element signature="e#243#257#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_tuchoi.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding>
-            <element signature="e#239#253#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Action.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -3314,17 +3076,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_sau.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-          <folding>
-            <element signature="e#151#166#0" expanded="false" />
-            <element signature="e#192#207#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_sau.xml">
@@ -3339,17 +3097,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_truoc.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="8" />
-          <folding>
-            <element signature="e#202#217#0" expanded="false" />
-            <element signature="e#241#256#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_truoc.xml">
@@ -3363,25 +3117,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_booking.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="e#431#446#0" expanded="false" />
-            <element signature="e#475#489#0" expanded="false" />
-            <element signature="e#519#533#0" expanded="false" />
-            <element signature="e#713#728#0" expanded="false" />
-            <element signature="e#1125#1140#0" expanded="false" />
-            <element signature="e#1342#1357#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="213" column="25" lean-forward="false" selection-start-line="213" selection-start-column="25" selection-end-line="213" selection-end-column="25" />
@@ -3394,62 +3133,11 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="59" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="103" column="33" lean-forward="false" selection-start-line="103" selection-start-column="33" selection-end-line="103" selection-end-column="33" />
-          <folding>
-            <element signature="e#44#433#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Services/MyFirebaseMessaging.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
-          <folding>
-            <element signature="e#31#551#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="59" column="16" lean-forward="false" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
-          <folding>
-            <element signature="e#44#831#0" expanded="true" />
-            <element signature="e#1173#1527#0" expanded="false" />
-            <element signature="e#2923#4195#0" expanded="false" />
-            <element signature="e#4251#4332#0" expanded="false" />
-            <element signature="e#7081#7108#0" expanded="false" />
-            <element signature="e#7166#7193#0" expanded="false" />
-            <element signature="e#7223#7908#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3457,14 +3145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -3477,20 +3157,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="41" column="106" lean-forward="false" selection-start-line="41" selection-start-column="106" selection-end-line="41" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Dates.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding>
-            <element signature="e#29#81#0" expanded="true" />
+            <element signature="e#29#81#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3503,14 +3175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="34" column="46" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDaLam.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -3519,31 +3183,258 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/Login.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/login/HandlerP.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="92" column="40" lean-forward="false" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/Job.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="395" lean-forward="false" selection-start-line="4" selection-start-column="395" selection-end-line="4" selection-end-column="417" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/pickup.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="148" lean-forward="false" selection-start-line="4" selection-start-column="148" selection-end-line="4" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/model/obj/dropoff.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="150" lean-forward="false" selection-start-line="4" selection-start-column="150" selection-end-line="4" selection-end-column="150" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangLam.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="840">
+          <caret line="65" column="16" lean-forward="false" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/JobDetails.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_kjhgfghjkjhgfghjk.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kjhgfghjkjhgfghjk.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_job_details.xml">
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/kjhgfghjkjhgfghjk.kt" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_job_details.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_viec_dang_co.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="14" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_map_details.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="54" lean-forward="false" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Action.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/Helper/Var.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="32" column="82" lean-forward="false" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Distance.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Duration.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Route.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="157" lean-forward="false" selection-start-line="5" selection-start-column="157" selection-end-line="5" selection-end-column="157" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/HandlerP.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="92" column="28" lean-forward="false" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+          <folding>
+            <element signature="e#44#394#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/Results.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="58" lean-forward="false" selection-start-line="3" selection-start-column="58" selection-end-line="3" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/jobdetails/JobDetails.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="194" column="50" lean-forward="true" selection-start-line="194" selection-start-column="50" selection-end-line="194" selection-end-column="50" />
+          <folding>
+            <element signature="e#44#993#0" expanded="false" />
+            <element signature="e#1192#2159#0" expanded="false" />
+            <element signature="e#2973#3280#0" expanded="false" />
+            <element signature="e#3322#4558#0" expanded="false" />
+            <element signature="e#5595#6187#0" expanded="false" />
+            <element signature="e#6214#6494#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/group_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_row_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_booking.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="105" column="4" lean-forward="false" selection-start-line="105" selection-start-column="4" selection-end-line="105" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/HandlerP.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="109" column="29" lean-forward="false" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/Results.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/viecdangco/ViecDangCo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="234" column="26" lean-forward="false" selection-start-line="234" selection-start-column="26" selection-end-line="234" selection-end-column="26" />
+          <folding>
+            <element signature="e#4358#4439#0" expanded="false" />
+            <element signature="e#8191#8218#0" expanded="false" />
+            <element signature="e#8276#8303#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/ViecDangCho.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="34" column="46" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tbm/dogs/activities/main/HandlerP.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

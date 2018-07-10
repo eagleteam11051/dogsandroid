@@ -1,11 +1,13 @@
 package com.tbm.dogs.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.ExpandableListView
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
+import com.tbm.dogs.activities.jobdetails.JobDetails
 import com.tbm.dogs.adapters.AdapterCongViec
 import com.tbm.dogs.model.obj.Job
 import java.util.*
@@ -60,6 +62,8 @@ class ViecDangLam : AppCompatActivity() {
         expandableListView.setAdapter(adapter)
         expandableListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
             Log.e(ViecDangLam.TAG, "onChildClick: " + listHeader[groupPosition] + ", " + data[listHeader[groupPosition]]!!.get(childPosition))
+
+            startActivity(Intent(this@ViecDangLam, JobDetails::class.java).putExtra("job",data[listHeader[groupPosition]]!!.get(childPosition)))
             true
         }
 

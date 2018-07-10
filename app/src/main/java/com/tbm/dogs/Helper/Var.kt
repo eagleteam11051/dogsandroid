@@ -29,6 +29,8 @@ object Var {
     val HEADER = "X-API-KEY"
     val delayLaunchScreen = 1000
     val tokenLogin = "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"
+    val MAP_DIRECTION_KEY = "AIzaSyC0vuulZn6ijkilXEGajyWBRA85bB7u3L8"
+    val MAP_DIRECTION_URL = "https://maps.googleapis.com/maps/api/directions/json?"
     var tokenOther = ""
     var currentTokenFCM = ""
     var shiper: Shiper? = null
@@ -36,7 +38,7 @@ object Var {
     //    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     //    <uses-permission android:name="android.permission.INTERNET" />
     //    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.GET_TASKS)
+    val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.GET_TASKS,Manifest.permission.ACCESS_FINE_LOCATION)
     var jobs: ArrayList<Job>? = null
     var jobsWaiting: ArrayList<Job>? = null
 }

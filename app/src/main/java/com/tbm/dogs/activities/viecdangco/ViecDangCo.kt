@@ -1,5 +1,6 @@
 package com.tbm.dogs.activities.viecdangco
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
@@ -75,9 +76,10 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
         super.onNewIntent(intent)
     }
 
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        //
+        mMap.isMyLocationEnabled = true
         //        // Add a marker in Sydney, Australia, and move the camera.
         //        LatLng sydney = new LatLng(21, 120);
         //        mMap.addMarker(new MarkerOptions()
@@ -134,6 +136,36 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
         val bTruoc:Button = view.findViewById(R.id.bTruoc)
         val tIndex:TextView = view.findViewById(R.id.tIndex)
 
+        fun date():String{
+            val gioId = sGio.selectedItemPosition
+
+            val phutId = sPhut.selectedItemPosition
+            var gio:String = ""
+            var phut:String = ""
+            when(gioId){
+                0 -> gio = "00"
+                1 -> gio = "01"
+                2 -> gio = "02"
+                3 -> gio = "03"
+                4 -> gio = "04"
+                5 -> gio = "05"
+                6 -> gio = "06"
+                7 -> gio = "07"
+                8 -> gio = "08"
+            }
+            when(phutId){
+                0 -> phut = "05"
+                1 -> phut = "10"
+                2 -> phut = "15"
+                3 -> phut = "20"
+                4 -> phut = "25"
+                5 -> phut = "30"
+                6 -> phut = "40"
+                7 -> phut = "50"
+            }
+            Log.e("time:","$gio:$phut")
+            return "$gio:$phut"
+        }
         fun update(){
             tDiemNhan.text = "Điểm Nhận: ${job?.pickup!!.address}"
             tDiemGiao.text = "Điểm Giao: ${job?.dropoff.address}"
@@ -166,6 +198,8 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
 
         bNhanViec.setOnClickListener {
             alertDialog?.dismiss()
+            //date()
+            handlerP.AcceptOrder(job.order_id,Var.shiper?.hero_id,date())
         }
         val bTuChoi:Button = view.findViewById(R.id.bTuChoi)
         bTuChoi.setOnClickListener {
@@ -214,6 +248,9 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
 
     override fun showError() {
 //        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+    override fun showSuccess() {
+        Toast.makeText(this,"Đã nhận đơn hàng thành công!, kiểm tra trong mục chờ duyệt",Toast.LENGTH_SHORT).show()
     }
 
     override fun returnJobs(jobs: ArrayList<Job>) {

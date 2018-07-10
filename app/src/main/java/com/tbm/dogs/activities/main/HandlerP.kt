@@ -39,7 +39,7 @@ class HandlerP(private val results: Results) {
 
     fun getJobsWaiting() {
         //api,hero_id,status,start_date,end_date,start
-        handlerJobsWaiting().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"2",dates.startDate(),dates.endDate(),"0")
+        handlerJobsWaiting().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"9",dates.startDate(),dates.endDate(),"0")
     }
 
 

@@ -47,6 +47,72 @@ class HandlerP(private val results: Results) {
         handlerJobs().execute(Var.API_GET_NEW_JOBS, Var.shiper?.hero_id)
     }
 
+    fun AcceptOrder(order_id: String, hero_id: String?, date: String) {
+        AcceptOrder().execute(Var.API_ACCEPT_ORDER,order_id,hero_id,date)
+    }
+
+    inner class AcceptOrder: AsyncTask<String,Void,String>(){
+        internal var client = OkHttpClient()
+        override fun doInBackground(vararg strings: String): String? {
+            val uri = Uri.parse(strings[0])
+                    .buildUpon()
+                    .appendQueryParameter("order_id", strings[1])
+                    .appendQueryParameter("hero_id", strings[2])
+                    .appendQueryParameter("res_time", strings[3])
+                    .build()
+            Log.e("AcceptOrder", uri.toString())
+            var url: URL? = null
+            try {
+                url = URL(uri.toString())
+            } catch (e: MalformedURLException) {
+                e.printStackTrace()
+            }
+
+            val builder = Request.Builder()
+            builder.url(url!!)
+            builder.addHeader(Var.HEADER, Var.tokenOther)
+            val request = builder.build()
+            try {
+                val response = client.newCall(request).execute()
+                return response.body()!!.string()
+            } catch (e: IOException) {
+                Log.e("AcceptOrder:", e.toString())
+                results.showError()
+            }
+
+            return null
+        }
+
+        override fun onPostExecute(s: String) {
+            super.onPostExecute(s)
+            handlerResults(s)
+        }
+
+        private fun handlerResults(s: String) {
+            Log.e("AcceptOrder",s)
+            val jobs = java.util.ArrayList<Job>()
+            //parse job
+            //TODO
+            val jsonObject = JSONObject(s)
+            val status = jsonObject["status"]
+            if(status == "success"){
+//                val response = jsonObject["response"] as JSONArray
+//                if(response.length()>0){
+//                    for (i in 0..response.length()-1){
+//                        val item = response.getJSONObject(i).toString()
+//
+//                        val job: Job = gson.fromJson(item, Job::class.java)
+//                        //Log.e("item",job.toString())
+//                        jobs.add(job)
+//                    }
+//                    results.returnJobs(jobs)
+//                }
+                results.showSuccess()
+            }else{
+                results.showError()
+            }
+        }
+    }
 
     inner class handlerJobs : AsyncTask<String, Void, String>() {
         internal var client = OkHttpClient()
