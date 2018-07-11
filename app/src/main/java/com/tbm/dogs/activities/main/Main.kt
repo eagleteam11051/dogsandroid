@@ -14,10 +14,11 @@ import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.Helper.Var.shiper
 import com.tbm.dogs.R
-import com.tbm.dogs.activities.ViecDaLam
-import com.tbm.dogs.activities.ViecDangCho
-import com.tbm.dogs.activities.ViecDangLam
-import com.tbm.dogs.activities.viecdangco.ViecDangCo
+import com.tbm.dogs.activities.congviec.ViecDaLam
+import com.tbm.dogs.activities.congviec.ViecDangCho
+import com.tbm.dogs.activities.congviec.ViecDangLam
+import com.tbm.dogs.activities.congviec.viecdangco.ViecDangCo
+import com.tbm.dogs.activities.thongbao.ThongBao
 import com.tbm.dogs.model.obj.Job
 import com.tbm.dogs.model.obj.Shiper
 import kotlinx.android.synthetic.main.main.*
@@ -35,6 +36,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         layout_viec_dang_co.setOnClickListener(this)
         layout_viec_da_lam.setOnClickListener(this)
         layout_viec_dang_cho.setOnClickListener(this)
+
     }
 
     private fun initData() {
@@ -60,7 +62,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar!!.hide()
+        //supportActionBar!!.hide()
         setContentView(R.layout.main)
         init()
     }
@@ -68,10 +70,18 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun onStart() {
         super.onStart()
         Log.e("onStart","run")
+        initNumberJob()
         handlerP.getJobs()
         handlerP.getJobsWaiting()
         handlerP.getJobsWorking()
         handlerP.getJobsDone()
+    }
+
+    private fun initNumberJob() {
+        tNumberTimViec.text = if(Var.jobs != null) Var.jobs?.size.toString() else "0"
+        tNumberChoDuyet.text = if(Var.jobsWaiting != null) Var.jobsWaiting?.size.toString() else "0"
+        tNumberDangLam.text = if(Var.jobsWorking != null) Var.jobsWorking?.size.toString() else "0"
+        tNumberDaLam.text = if(Var.jobsDone != null) Var.jobsDone?.size.toString() else "0"
     }
 
     override fun onBackPressed() {
@@ -84,11 +94,12 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-
+        menuInflater.inflate(R.menu.menu_main,menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        startActivity(Intent(this,ThongBao::class.java))
         return super.onOptionsItemSelected(item)
     }
 

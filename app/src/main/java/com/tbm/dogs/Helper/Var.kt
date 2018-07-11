@@ -35,9 +35,6 @@ object Var {
     var currentTokenFCM = ""
     var shiper: Shiper? = null
     val PermissionAll = 1
-    //    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //    <uses-permission android:name="android.permission.INTERNET" />
-    //    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.INTERNET,
             Manifest.permission.ACCESS_NETWORK_STATE,

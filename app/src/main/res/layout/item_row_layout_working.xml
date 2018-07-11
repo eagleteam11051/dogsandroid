@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/_8sdp"
+    android:paddingBottom="@dimen/_8sdp"
+    android:id="@+id/layout_row"
+    >
+    <TextView
+        android:id="@+id/tItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="item row"
+        android:maxLines="3"
+        android:textColor="@color/colorAccent"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:paddingStart="@dimen/_32sdp"
+        android:layout_toLeftOf="@+id/tTime"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_2sdp"
+        />
+    <TextView
+        android:id="@+id/tTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:textColor="@color/colorPrimary"
+        android:padding="@dimen/_8sdp"
+        android:layout_toLeftOf="@+id/bNhanHang"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_2sdp"
+        />
+    <Button
+        android:id="@+id/bNhanHang"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:text="Nhận Hàng"
+        android:textSize="@dimen/_8sdp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/bg_working"
+        android:layout_toLeftOf="@+id/bGiaoHang"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_2sdp"
+        />
+    <Button
+        android:id="@+id/bGiaoHang"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:text="Giao Hàng"
+        android:textSize="@dimen/_8sdp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/bg_working"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_4sdp"
+        />
+</RelativeLayout>

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ViecDaLam">
+    tools:context=".activities.congviec.ViecDaLam">
     <ExpandableListView
         android:id="@+id/expan_cong_viec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="1dp"
-        android:childDivider="@color/colorAccent"
+        android:childDivider="#554caf50"
         >
 
     </ExpandableListView>

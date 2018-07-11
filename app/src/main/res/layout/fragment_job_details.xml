@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.jobdetails.JobDetails$DetailFragment">
+    tools:context=".activities.congviec.chitietcongviec.ChiTietCongViec$DetailFragment">
 
     <TextView
         android:layout_width="match_parent"

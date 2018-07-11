@@ -10,9 +10,9 @@ import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.tbm.dogs.R
-import com.tbm.dogs.activities.NotificationDetails
+import com.tbm.dogs.activities.thongbao.ChiTietThongBao
 import com.tbm.dogs.activities.main.Main
-import com.tbm.dogs.activities.viecdangco.ViecDangCo
+import com.tbm.dogs.activities.congviec.viecdangco.ViecDangCo
 
 
 
@@ -26,12 +26,12 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
         var it:Intent
         if(notification.tag == "0"){
             // thong bao noi bo
-            it = Intent(this, NotificationDetails::class.java)
+            it = Intent(this, ChiTietThongBao::class.java)
             it.putExtra("title", notification.title)
             it.putExtra("body", notification.body)
         }else{
             // thong bao co job new
-            it = Intent(this,ViecDangCo::class.java)
+            it = Intent(this, ViecDangCo::class.java)
         }
 
         //        it.setAction(Intent.ACTION_MAIN);
@@ -42,8 +42,8 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
         val am = this.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val taskInfo = am.getRunningTasks(1)
         Log.e("topActivity", "CURRENT Activity ::" + taskInfo[0].topActivity.className)
-        if(taskInfo[0].topActivity.className == "com.tbm.dogs.activities.viecdangco.ViecDangCo" && notification.tag == "1"){
-            startActivity(Intent(this,ViecDangCo::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP))
+        if(taskInfo[0].topActivity.className == "com.tbm.dogs.activities.congviec.ViecDangCo" && notification.tag == "1"){
+            startActivity(Intent(this, ViecDangCo::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP))
         }
         if(taskInfo[0].topActivity.className == "com.tbm.dogs.activities.main.Main" && notification.tag == "1"){
             startActivity(Intent(this,Main::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP))
