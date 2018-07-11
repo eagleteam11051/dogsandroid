@@ -40,7 +40,10 @@ class ViecDangLam : AppCompatActivity() {
         //data for child
         data = HashMap()
         val listGiaoHang = ArrayList<Job>()
-        listGiaoHang.addAll(Var.jobsWaiting!!)
+        if(Var.jobsWorking != null){
+            listGiaoHang.addAll(Var.jobsWorking!!)
+        }
+
 
 //        val listCuuHo = ArrayList<String>()
 //        listCuuHo.add("Hết xăng")
@@ -74,6 +77,6 @@ class ViecDangLam : AppCompatActivity() {
 
     }
     companion object {
-        private val TAG = "ViecDangcho"
+        private val TAG = "JobWorking"
     }
 }

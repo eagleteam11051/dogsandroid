@@ -31,7 +31,6 @@ class HandlerP(internal var results: Results) {
             b2 = true
         }
         if (b1 && b2) {
-            //startActivity(new Intent(this,Main.class));
             results.showDialog()
             handlerLogin().execute(Var.API_SIGNIN, "0945333445"/*eUserName.getText().toString()*/, "123456"/*ePassWord.getText().toString()*/, Var.currentTokenFCM)
         }
@@ -90,13 +89,13 @@ class HandlerP(internal var results: Results) {
                 val response1 = jsonObject.getString("response")
                 results.saveInfoUser(response1)
                 val b = Bundle()
-                b.putString("user", response1)
+                b.putString("shiper", response1)
                 results.startMain(b)
             } else {
                 results.showError()
             }
         } catch (e: JSONException) {
-            e.printStackTrace()
+            Log.e("whenLogin:",e.toString())
         }
 
     }

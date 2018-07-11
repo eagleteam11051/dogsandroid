@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 
 class Shared(internal var context: Context) {
     internal var shared: SharedPreferences
-    val infoUser: String
-        get() = shared.getString("user", "")
+    val infoShiper: String
+        get() = shared.getString("shiper", "")
     val tokenFCM: String
         get() = shared.getString("tokenfcm", "")
 
@@ -14,8 +14,8 @@ class Shared(internal var context: Context) {
         shared = context.getSharedPreferences("dogs", Context.MODE_PRIVATE)
     }
 
-    fun saveInfoUser(s: String) {
-        shared.edit().putString("user", s).apply()
+    fun saveInfoShiper(s: String) {
+        shared.edit().putString("shiper", s).apply()
     }
 
     fun saveTokenFCM(token: String) {

@@ -3,17 +3,16 @@ package com.tbm.dogs.activities.main
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
+import com.tbm.dogs.Helper.Var.shiper
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.ViecDaLam
 import com.tbm.dogs.activities.ViecDangCho
@@ -21,67 +20,39 @@ import com.tbm.dogs.activities.ViecDangLam
 import com.tbm.dogs.activities.viecdangco.ViecDangCo
 import com.tbm.dogs.model.obj.Job
 import com.tbm.dogs.model.obj.Shiper
+import kotlinx.android.synthetic.main.main.*
 
 class Main : AppCompatActivity(), View.OnClickListener, Results {
 
-
-
-    private lateinit var layoutViecDangCo: RelativeLayout
-    private lateinit var layoutViecDangCho: RelativeLayout
-    private lateinit var layoutViecDangLam: RelativeLayout
-    lateinit var layoutViecDaLam: RelativeLayout
-    lateinit var imgAvatar: ImageView
-    lateinit var tName: TextView
-    lateinit var tId: TextView
-    lateinit var tMoney: TextView
-    lateinit var tAddress: TextView
-    lateinit var shiper: Shiper
-    lateinit var tNumberTimViec:TextView
-    lateinit var tNumberChoDuyet:TextView
-    lateinit var tNumberDangLam: TextView
-    lateinit var tNumberDaLam: TextView
-    lateinit var gson: Gson
-    lateinit var shared: Shared
-    lateinit var handlerP: HandlerP
+    private lateinit var gson: Gson
+    private lateinit var shared: Shared
+    private lateinit var handlerP: HandlerP
 
     internal fun init() {
-        layoutViecDaLam = findViewById(R.id.layout_viec_da_lam)
-        layoutViecDangCho = findViewById(R.id.layout_viec_dang_cho)
-        layoutViecDangCo = findViewById(R.id.layout_viec_dang_co)
-        layoutViecDangLam = findViewById(R.id.layout_viec_dang_lam)
-        imgAvatar = findViewById(R.id.imgAvatar)
-        tName = findViewById(R.id.tName)
-        tId = findViewById(R.id.tId)
-        tMoney = findViewById(R.id.tMoney)
-        tAddress = findViewById(R.id.tAddress)
-        tNumberChoDuyet = findViewById(R.id.tNumberChoDuyet)
-        tNumberDaLam = findViewById(R.id.tNumberDaLam)
-        tNumberDangLam = findViewById(R.id.tNumberDangLam)
-        tNumberTimViec = findViewById(R.id.tNumberTimViec)
-        initUser()
+        initShiper()
         initData()
-        layoutViecDangLam.setOnClickListener(this)
-        layoutViecDangCo.setOnClickListener(this)
-        layoutViecDaLam.setOnClickListener(this)
-        layoutViecDangCho.setOnClickListener(this)
+        layout_viec_dang_lam.setOnClickListener(this)
+        layout_viec_dang_co.setOnClickListener(this)
+        layout_viec_da_lam.setOnClickListener(this)
+        layout_viec_dang_cho.setOnClickListener(this)
     }
 
     private fun initData() {
-        tName.text = shiper.fullname
-        tId.text = "ID: " + shiper.hero_id
-        tMoney.text = "Tài Khoản: " + shiper.balance
-        tAddress.text = "Địa Chỉ: " + shiper.address
-        Picasso.get().load(shiper.image).into(imgAvatar)
+        tName.text = shiper!!.fullname
+        tId.text = "ID: " + shiper!!.hero_id
+        tMoney.text = "Tài Khoản: " + shiper!!.balance
+        tAddress.text = "Địa Chỉ: " + shiper!!.address
+        Picasso.get().load(shiper!!.image).into(imgAvatar)
         shared = Shared(this)
         handlerP = HandlerP(this)
     }
 
-    internal fun initUser() {
+    internal fun initShiper() {
         if(Var.shiper == null){
             gson = Gson()
-            shiper = gson.fromJson(intent.getStringExtra("user"), Shiper::class.java)
+            shiper = gson.fromJson(intent.getStringExtra("shiper"), Shiper::class.java)
             Var.shiper = shiper
-            Var.tokenOther = shiper.token
+            Var.tokenOther = shiper!!.token
         }else{
             shiper = Var.shiper!!
         }
@@ -92,8 +63,15 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         supportActionBar!!.hide()
         setContentView(R.layout.main)
         init()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.e("onStart","run")
         handlerP.getJobs()
         handlerP.getJobsWaiting()
+        handlerP.getJobsWorking()
+        handlerP.getJobsDone()
     }
 
     override fun onBackPressed() {
@@ -150,5 +128,14 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun returnJobsWaiting(jobs: ArrayList<Job>) {
         Var.jobsWaiting = jobs
         tNumberChoDuyet.text = ""+jobs.size
+    }
+    override fun returnJobsWorking(jobs: ArrayList<Job>) {
+        Var.jobsWorking = jobs
+        tNumberDangLam.text = ""+jobs.size
+    }
+
+    override fun returnJobsDone(jobs: ArrayList<Job>) {
+        Var.jobsDone = jobs
+        tNumberDaLam.text = ""+jobs.size
     }
 }

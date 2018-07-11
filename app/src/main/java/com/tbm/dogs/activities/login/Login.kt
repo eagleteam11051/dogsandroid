@@ -1,38 +1,31 @@
 package com.tbm.dogs.activities.login
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import com.tbm.dogs.Helper.Action
 import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.main.Main
+import kotlinx.android.synthetic.main.login.*
 
 class Login : AppCompatActivity(), Results {
 
-    lateinit var eUserName: EditText
-    lateinit var ePassWord: EditText
-    lateinit var bLogin: Button
-    lateinit var tForgot: TextView
-    lateinit var shared: Shared
-    lateinit var handlerP: HandlerP
-    lateinit var action: Action
-    lateinit var progressDialog: ProgressDialog
+
+    private lateinit var shared: Shared
+    private lateinit var handlerP: HandlerP
+    private lateinit var action: Action
+    private lateinit var progressDialog: ProgressDialog
 
     internal fun init() {
-
-        eUserName = findViewById(R.id.eUserName)
-        ePassWord = findViewById(R.id.ePassWord)
-        bLogin = findViewById(R.id.bLogin)
         bLogin.setOnClickListener { handlerP.actionLogin(eUserName, ePassWord) }
-        tForgot = findViewById(R.id.tForgot)
+        tForgot.setOnClickListener { showForGot() }
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Đang xử lý, xin chờ giây lát!")
         progressDialog.setCancelable(false)
@@ -40,6 +33,20 @@ class Login : AppCompatActivity(), Results {
         handlerP = HandlerP(this)
         action = Action()
     }
+
+    @SuppressLint("MissingPermission")
+    private fun showForGot() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Thông báo!")
+        builder.setMessage("Bạn có muốn gọi tới tổng đài để yêu cầu cấp lại mật khẩu không?")
+        builder.setPositiveButton("OK") {
+            dialogInterface, i ->
+                dialogInterface.cancel()
+            val callIntent = Intent(Intent.ACTION_CALL)
+            callIntent.data = Uri.parse("tel:1800585852")
+            startActivity(callIntent)
+        }
+        builder.create().show()    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +59,7 @@ class Login : AppCompatActivity(), Results {
     }
 
     override fun saveInfoUser(response1: String) {
-        shared.saveInfoUser(response1)
+        shared.saveInfoShiper(response1)
     }
 
     override fun startMain(user: Bundle) {

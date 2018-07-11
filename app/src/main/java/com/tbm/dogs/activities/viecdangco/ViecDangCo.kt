@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -19,18 +18,14 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
-import com.tbm.dogs.activities.main.Main
 import com.tbm.dogs.model.obj.Job
 
 
-class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindowAdapter, Results, GoogleMap.OnMarkerClickListener {
-
-
-
-    lateinit var mMap: GoogleMap
-    var jobs: ArrayList<Job>? = null
-    lateinit var handlerP: HandlerP
-    lateinit var groupJob: ArrayList<Job>
+class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.OnMarkerClickListener {
+    private lateinit var mMap: GoogleMap
+    private var jobs: ArrayList<Job>? = null
+    private lateinit var handlerP: HandlerP
+    private lateinit var groupJob: ArrayList<Job>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,38 +35,9 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
                 .findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
         handlerP = HandlerP(this)
-
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home ->{
-                Log.e("home","clicked")
-                startActivity(Intent(this,Main::class.java))
-                finish()
-            }
-
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
-    }
-
-    override fun onBackPressed() {
-        startActivity(Intent(this,Main::class.java))
-        finish()
-        super.onBackPressed()
-    }
     override fun onNewIntent(intent: Intent) {
-        //        Toast.makeText(this, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show();
-        //        LatLng sydney = new LatLng(Integer.parseInt(intent.getStringExtra("data").split(",")[0]), Integer.parseInt(intent.getStringExtra("data").split(",")[1]));
-        //        mMap.addMarker(new MarkerOptions()
-        //                .position(sydney)
-        //                .snippet("Population: 4,137,400")
-        //                .title("Marker in Sydney")
-        //                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_a)))
-        //                .setTag(0);
-        //        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,15.0f));
-        //reload data
         handlerP.getJobs()
         super.onNewIntent(intent)
     }
@@ -80,32 +46,12 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.isMyLocationEnabled = true
-        //        // Add a marker in Sydney, Australia, and move the camera.
-        //        LatLng sydney = new LatLng(21, 120);
-        //        mMap.addMarker(new MarkerOptions()
-        //                .position(sydney)
-        //                .snippet("Population: 4,137,400")
-        //                .title("Marker in Sydney")
-        //                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_a)))
-        //                .setTag(0);
-        //        sydney = new LatLng(21.585219, 105.806863);
-        //        mMap.addMarker(new MarkerOptions()
-        //                .position(sydney)
-        //                .snippet("Population: 4,137,400")
-        //                .title("hihi")
-        //                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_shiper)))
-        //                .setTag(1);
-
         mMap.setMaxZoomPreference(50.0f)
         mMap.setMinZoomPreference(5.0f)
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,15.0f));
-        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,15.0f));
         mMap.setOnMarkerClickListener(this)
-        mMap.setInfoWindowAdapter(this)
         this.jobs = Var.jobs
         updateMap()
     }
-
 
     override fun onMarkerClick(p0: Marker?): Boolean {
         showInfo(handlerP.getJob(p0?.tag.toString()))
@@ -138,10 +84,9 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
 
         fun date():String{
             val gioId = sGio.selectedItemPosition
-
             val phutId = sPhut.selectedItemPosition
-            var gio:String = ""
-            var phut:String = ""
+            var gio = ""
+            var phut = ""
             when(gioId){
                 0 -> gio = "00"
                 1 -> gio = "01"
@@ -194,8 +139,6 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
             }
         }
 
-
-
         bNhanViec.setOnClickListener {
             alertDialog?.dismiss()
             //date()
@@ -220,13 +163,6 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
         alertDialog.show()
     }
 
-    override fun getInfoWindow(marker: Marker): View? {
-        return null
-    }
-
-    override fun getInfoContents(marker: Marker): View? {
-        return null
-    }
 
     private fun updateMap() {
         if(jobs!= null){
@@ -236,8 +172,6 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindow
                 val sydney = LatLng(item.pickup.latitude.toDouble(), item.pickup.longitude.toDouble());
                 mMap.addMarker(MarkerOptions()
                         .position(sydney)
-                        .snippet(item.shipping_type)
-                        .title(item.note)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_shiper)))
                         .setTag(item.order_id.toInt())
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,13.0f));

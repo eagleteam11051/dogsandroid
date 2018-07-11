@@ -20,8 +20,6 @@ class ViecDangCho : AppCompatActivity() {
     }
 
     private fun initList() {
-        //prepare data
-
         //data for header group
         val listHeader = ArrayList<String>()
         listHeader.add("Giao hàng nhanh")
@@ -32,7 +30,10 @@ class ViecDangCho : AppCompatActivity() {
         //data for child
         data = HashMap()
         val listGiaoHang = ArrayList<Job>()
-        listGiaoHang.addAll(Var.jobsWaiting!!)
+        if(Var.jobsWaiting != null){
+            listGiaoHang.addAll(Var.jobsWaiting!!)
+        }
+
 //
 //        val listCuuHo = ArrayList<String>()
 //        listCuuHo.add("Hết xăng")
@@ -72,6 +73,6 @@ class ViecDangCho : AppCompatActivity() {
     }
 
     companion object {
-        private val TAG = "ViecDangcho"
+        private val TAG = "JobWaiting"
     }
 }

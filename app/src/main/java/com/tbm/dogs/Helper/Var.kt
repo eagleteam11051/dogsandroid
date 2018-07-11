@@ -38,7 +38,14 @@ object Var {
     //    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     //    <uses-permission android:name="android.permission.INTERNET" />
     //    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.GET_TASKS,Manifest.permission.ACCESS_FINE_LOCATION)
+    val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.INTERNET,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.GET_TASKS,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.CALL_PHONE)
     var jobs: ArrayList<Job>? = null
     var jobsWaiting: ArrayList<Job>? = null
+    var jobsWorking: ArrayList<Job>? = null
+    var jobsDone: ArrayList<Job>? = null
 }
