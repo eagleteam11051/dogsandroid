@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.congviec.ViecDangLam">
+    tools:context=".activities.congviec.danglam.ViecDangLam">
     <ExpandableListView
         android:id="@+id/expan_cong_viec"
         android:layout_width="match_parent"

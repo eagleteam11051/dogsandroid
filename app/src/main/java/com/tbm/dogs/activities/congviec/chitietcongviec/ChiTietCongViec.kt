@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.provider.Settings
-import android.support.design.widget.Snackbar
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -14,6 +13,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -42,9 +42,9 @@ class ChiTietCongViec : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chitiet_congviec)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         job = intent.getSerializableExtra("job") as Job
         Log.e("job_id",job.order_id)
-        setSupportActionBar(toolbar)
         val arrayFragment = ArrayList<Fragment>()
         val detail = DetailFragment.newInstance(job)
         val mapF = MapFragment.newInstance(job)
@@ -56,14 +56,14 @@ class ChiTietCongViec : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
 
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        finish()
+        return super.onOptionsItemSelected(item)
+    }
 
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/mThongBao" android:title="Thông Báo"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mThongBao"
+        android:title="Thông Báo"
+        android:icon="@drawable/ic_thongbao"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/mReload"
+        android:title="reload"
+        android:icon="@drawable/ic_reload"
+        app:showAsAction="always"
+        />
 </menu>

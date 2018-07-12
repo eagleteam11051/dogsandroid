@@ -3,6 +3,7 @@ package com.tbm.dogs.activities.congviec
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.MenuItem
 import android.widget.ExpandableListView
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
@@ -18,6 +19,10 @@ class ViecDaLam : AppCompatActivity() {
         setContentView(R.layout.activity_viec_da_lam)
         init()
         initList()
+    }
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        finish()
+        return super.onOptionsItemSelected(item)
     }
 
     private fun init() {
@@ -72,6 +77,7 @@ class ViecDaLam : AppCompatActivity() {
         }
 
     }
+
     companion object {
         private val TAG = "JobDone"
     }

@@ -28,6 +28,7 @@ object Var {
     val API_GET_BANK_INFO = API + "VinterGetBankInfo/?"
     val HEADER = "X-API-KEY"
     val delayLaunchScreen = 1000
+    val delayReloadJob:Long = 60000
     val tokenLogin = "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"
     val MAP_DIRECTION_KEY = "AIzaSyC0vuulZn6ijkilXEGajyWBRA85bB7u3L8"
     val MAP_DIRECTION_URL = "https://maps.googleapis.com/maps/api/directions/json?"

@@ -24,8 +24,8 @@
         <activity android:name=".activities.login.Login" />
         <activity android:name=".activities.main.Main" />
         <activity
-            android:name=".activities.congviec.viecdangco.ViecDangCo"
-            android:parentActivityName=".activities.main.Main" />
+            android:name=".activities.congviec.dangco.ViecDangCo"
+            />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -66,21 +66,19 @@
 
         <activity
             android:name=".activities.congviec.ViecDangCho"
-            android:parentActivityName=".activities.main.Main" />
+            />
         <activity
-            android:name=".activities.congviec.ViecDangLam"
-            android:parentActivityName=".activities.main.Main" />
+            android:name=".activities.congviec.danglam.ViecDangLam"
+            />
         <activity
             android:name=".activities.congviec.ViecDaLam"
-            android:parentActivityName=".activities.main.Main" />
+            />
         <activity
             android:name=".activities.thongbao.ChiTietThongBao"
             android:launchMode="singleTop" />
         <activity
-            android:name=".activities.congviec.chitietcongviec.ChiTietCongViec"
-            android:label="@string/title_activity_job_details"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.thongbao.ThongBao"></activity>
+            android:name=".activities.congviec.chitietcongviec.ChiTietCongViec" />
+        <activity android:name=".activities.thongbao.thongbao.ThongBao"></activity>
     </application>
 
 </manifest>

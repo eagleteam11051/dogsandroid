@@ -18,8 +18,8 @@ import java.util.*
 
 class HandlerP(private val results: Results) {
     private var l = 0
-    lateinit var gson: Gson
-    lateinit var dates: Dates
+    var gson: Gson
+    var dates: Dates
     init {
         gson = Gson()
         dates = Dates()
@@ -33,10 +33,10 @@ class HandlerP(private val results: Results) {
             l++
         }
     }
+    
     fun getJobs() {
         handlerFindJobs().execute(Var.API_GET_NEW_JOBS, Var.shiper?.hero_id)
     }
-
     fun getJobsWaiting() {
         //api,hero_id,status,start_date,end_date,start
         handlerJobsWaiting().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"9",dates.startDate(),dates.endDate(),"0")
@@ -45,7 +45,6 @@ class HandlerP(private val results: Results) {
         //api,hero_id,status,start_date,end_date,start
         handlerJobsWorking().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"2",dates.startDate(),dates.endDate(),"0")
     }
-
     fun getJobsDone() {
         //api,hero_id,status,start_date,end_date,start
         handlerJobsDone().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"8",dates.startDate(),dates.endDate(),"0")
@@ -111,7 +110,7 @@ class HandlerP(private val results: Results) {
                     results.returnJobsDone(jobs)
                 }
             }else{
-                results.showError()
+                results.showErrorJobsDone()
             }
         }
     }
@@ -175,7 +174,7 @@ class HandlerP(private val results: Results) {
                     results.returnJobsWorking(jobs)
                 }
             }else{
-                results.showError()
+                results.showErrorJobsWorking()
             }
         }
     }
@@ -239,7 +238,7 @@ class HandlerP(private val results: Results) {
                     results.returnJobsWaiting(jobs)
                 }
             }else{
-                results.showError()
+                results.showErrorJobsWaiting()
             }
         }
     }
@@ -300,7 +299,7 @@ class HandlerP(private val results: Results) {
                     results.returnJobs(jobs)
                 }
             }else{
-                results.showError()
+                results.showErrorJobs()
             }
         }
     }

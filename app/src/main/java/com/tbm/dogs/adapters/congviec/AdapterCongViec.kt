@@ -12,10 +12,13 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.congviec.chitietcongviec.ChiTietCongViec
+import com.tbm.dogs.activities.congviec.danglam.HandlerP
 import com.tbm.dogs.model.obj.Job
 import java.util.*
 
-class AdapterCongViec(internal var context: Context, internal var headerGroup: List<String>, internal var child: HashMap<String, List<Job>>,var mode:Int) : BaseExpandableListAdapter() {
+class AdapterCongViec(internal var context: Context, internal var headerGroup: List<String>, internal var child: HashMap<String, List<Job>>,var mode:Int,var handlerP: HandlerP? = null) : BaseExpandableListAdapter() {
+
+    lateinit var child: HashMap<String, List<Job>>
 
     override fun getGroupCount(): Int {
         return headerGroup.size
@@ -80,9 +83,15 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
             val tItem = view!!.findViewById<TextView>(R.id.tItem)
             val tTime = view.findViewById<TextView>(R.id.tTime)
             val bNhanHang = view.findViewById<Button>(R.id.bNhanHang)
-            bNhanHang.setOnClickListener { Log.e("row","nhan hang") }
+            bNhanHang.setOnClickListener {
+                Log.e("row","nhan hang")
+                handlerP?.checkinNhanHang((getChild(i, i1) as Job))
+            }
             val bGiaoHang = view.findViewById<Button>(R.id.bGiaoHang)
-            bGiaoHang.setOnClickListener { Log.e("row","giao hang") }
+            bGiaoHang.setOnClickListener {
+                Log.e("row","giao hang")
+                handlerP?.checkinGiaoHang((getChild(i, i1) as Job))
+            }
             val layoutRow = view.findViewById<RelativeLayout>(R.id.layout_row)
             layoutRow.setOnClickListener {
                 Log.e("layout_row","clicked")

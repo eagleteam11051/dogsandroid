@@ -11,4 +11,8 @@ interface Results {
     fun returnJobsWaiting(jobs: ArrayList<Job>)
     fun returnJobsWorking(jobs: ArrayList<Job>)
     fun returnJobsDone(jobs: ArrayList<Job>)
+    fun showErrorJobs()
+    fun showErrorJobsWaiting()
+    fun showErrorJobsWorking()
+    fun showErrorJobsDone()
 }

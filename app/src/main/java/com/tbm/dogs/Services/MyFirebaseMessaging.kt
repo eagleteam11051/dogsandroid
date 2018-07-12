@@ -10,9 +10,9 @@ import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.tbm.dogs.R
-import com.tbm.dogs.activities.thongbao.ChiTietThongBao
+import com.tbm.dogs.activities.congviec.dangco.ViecDangCo
 import com.tbm.dogs.activities.main.Main
-import com.tbm.dogs.activities.congviec.viecdangco.ViecDangCo
+import com.tbm.dogs.activities.thongbao.ChiTietThongBao
 
 
 

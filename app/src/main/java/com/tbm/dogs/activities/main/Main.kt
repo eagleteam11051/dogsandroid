@@ -2,6 +2,7 @@ package com.tbm.dogs.activities.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
@@ -16,18 +17,34 @@ import com.tbm.dogs.Helper.Var.shiper
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.congviec.ViecDaLam
 import com.tbm.dogs.activities.congviec.ViecDangCho
-import com.tbm.dogs.activities.congviec.ViecDangLam
-import com.tbm.dogs.activities.congviec.viecdangco.ViecDangCo
-import com.tbm.dogs.activities.thongbao.ThongBao
+import com.tbm.dogs.activities.congviec.dangco.ViecDangCo
+import com.tbm.dogs.activities.congviec.danglam.ViecDangLam
+import com.tbm.dogs.activities.thongbao.thongbao.ThongBao
 import com.tbm.dogs.model.obj.Job
 import com.tbm.dogs.model.obj.Shiper
 import kotlinx.android.synthetic.main.main.*
 
 class Main : AppCompatActivity(), View.OnClickListener, Results {
+    override fun showErrorJobs() {
+        tNumberTimViec.text = "0"
+    }
+
+    override fun showErrorJobsWaiting() {
+        tNumberChoDuyet.text = "0"
+    }
+
+    override fun showErrorJobsWorking() {
+        tNumberDangLam.text = "0"
+    }
+
+    override fun showErrorJobsDone() {
+        tNumberDaLam.text = "0"
+    }
 
     private lateinit var gson: Gson
     private lateinit var shared: Shared
     private lateinit var handlerP: HandlerP
+    private var mHandler: Handler? = null
 
     internal fun init() {
         initShiper()
@@ -71,6 +88,38 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         super.onStart()
         Log.e("onStart","run")
         initNumberJob()
+        //loadJobs()
+        mHandler = Handler()
+        startRepeatingTask()
+    }
+
+    fun startRepeatingTask() {
+        mStatusChecker.run()
+    }
+
+    var mStatusChecker: Runnable = object : Runnable {
+        override fun run() {
+            try {
+                loadJobs() //this function can change value of mInterval.
+            } finally {
+                // 100% guarantee that this always happens, even if
+                // your update method throws an exception
+                mHandler?.postDelayed(this, Var.delayReloadJob)
+            }
+        }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopRepeatingTask()
+    }
+
+    fun stopRepeatingTask() {
+        mHandler?.removeCallbacks(mStatusChecker)
+    }
+
+    private fun loadJobs(){
         handlerP.getJobs()
         handlerP.getJobsWaiting()
         handlerP.getJobsWorking()
@@ -99,7 +148,13 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        startActivity(Intent(this,ThongBao::class.java))
+        when(item.itemId){
+            R.id.mThongBao ->
+                startActivity(Intent(this, ThongBao::class.java))
+            R.id.mReload ->
+                loadJobs()
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
