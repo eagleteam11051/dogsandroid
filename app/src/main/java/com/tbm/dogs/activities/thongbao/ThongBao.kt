@@ -21,6 +21,14 @@ class ThongBao : AppCompatActivity() {
         val arrayThongBao = ArrayList<ThongBaoObj>()
         arrayThongBao.add(ThongBaoObj("content1","1/1/1"))
         arrayThongBao.add(ThongBaoObj("content2","1/1/133"))
+        arrayThongBao.add(ThongBaoObj("content1","1/1/1"))
+        arrayThongBao.add(ThongBaoObj("content2","1/1/133"))
+        arrayThongBao.add(ThongBaoObj("content1","1/1/1"))
+        arrayThongBao.add(ThongBaoObj("content2","1/1/133"))
+        arrayThongBao.add(ThongBaoObj("content1","1/1/1"))
+        arrayThongBao.add(ThongBaoObj("content2","1/1/133"))
+        arrayThongBao.add(ThongBaoObj("content1","1/1/1"))
+        arrayThongBao.add(ThongBaoObj("content2","1/1/133"))
         viewAdapter = AdapterThongBao(arrayThongBao)
 
         recyclerView = findViewById<RecyclerView>(R.id.rListThongBao).apply {
