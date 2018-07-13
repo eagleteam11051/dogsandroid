@@ -11,4 +11,5 @@ interface Results {
     fun dismisDialog()
     fun returnJobsWorking(jobs: ArrayList<Job>)
     fun showErrorJobsWorking()
+    fun update(b: Boolean)
 }

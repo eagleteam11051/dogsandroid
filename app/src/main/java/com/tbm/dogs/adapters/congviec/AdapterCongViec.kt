@@ -18,14 +18,14 @@ import java.util.*
 
 class AdapterCongViec(internal var context: Context, internal var headerGroup: List<String>, internal var child: HashMap<String, List<Job>>,var mode:Int,var handlerP: HandlerP? = null) : BaseExpandableListAdapter() {
 
-    lateinit var child: HashMap<String, List<Job>>
+    var mchild: HashMap<String, List<Job>> = child
 
     override fun getGroupCount(): Int {
         return headerGroup.size
     }
 
     override fun getChildrenCount(i: Int): Int {
-        return child[headerGroup[i]]!!.size
+        return mchild[headerGroup[i]]!!.size
     }
 
     override fun getGroup(i: Int): Any {
@@ -33,7 +33,7 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
     }
 
     override fun getChild(i: Int, i1: Int): Any {
-        return child[headerGroup[i]]!!.get(i1)
+        return mchild[headerGroup[i]]!!.get(i1)
     }
 
     override fun getGroupId(i: Int): Long {

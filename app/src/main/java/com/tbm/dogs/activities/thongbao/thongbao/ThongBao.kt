@@ -47,6 +47,7 @@ class ThongBao : AppCompatActivity(),Results {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thong_bao)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = ""
         progressDialog = ProgressDialog(this).apply {
             setMessage("Đang tải thông báo, xin đợi!")
         }

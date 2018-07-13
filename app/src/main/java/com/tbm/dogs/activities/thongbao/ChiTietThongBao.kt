@@ -27,6 +27,7 @@ class ChiTietThongBao : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chitiet_thongbao)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Chi Tiết Thông Báo"
         thongBaoObj = intent.getSerializableExtra("thongbao") as ThongBaoObj
         init()
         initNotification()

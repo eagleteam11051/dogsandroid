@@ -43,6 +43,7 @@ class ChiTietCongViec : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chitiet_congviec)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Chi Tiết Đơn Hàng"
         job = intent.getSerializableExtra("job") as Job
         Log.e("job_id",job.order_id)
         val arrayFragment = ArrayList<Fragment>()

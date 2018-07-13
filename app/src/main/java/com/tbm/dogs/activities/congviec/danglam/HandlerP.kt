@@ -29,6 +29,7 @@ class HandlerP(var results: Results,var context: Context) {
         if(Locations.isLocationEnabled(context)){
             results.requestUpdate(job,1)
             results.showDialog()
+            results.update(true)
         }else{
             results.showEnableLocation()
         }
@@ -40,6 +41,7 @@ class HandlerP(var results: Results,var context: Context) {
         if(Locations.isLocationEnabled(context)){
             results.requestUpdate(job,2)
             results.showDialog()
+            results.update(true)
         }else{
             results.showEnableLocation()
         }

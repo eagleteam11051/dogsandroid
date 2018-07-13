@@ -22,6 +22,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ViecDangLam : AppCompatActivity(),Results {
+    override fun update(b: Boolean) {
+        update = b
+    }
+
     override fun returnJobsWorking(jobs: ArrayList<Job>) {
         Var.jobsWorking = jobs
         listGiaoHang.clear()
@@ -29,8 +33,8 @@ class ViecDangLam : AppCompatActivity(),Results {
             listGiaoHang.addAll(Var.jobsWorking!!)
         }
         data[listHeader[0]] = listGiaoHang
-        adapter = AdapterCongViec(this, listHeader, data, 1,handlerP)
-        expandableListView.setAdapter(adapter)
+        adapter.mchild = data
+        adapter.notifyDataSetChanged()
     }
 
     override fun showErrorJobsWorking() {
@@ -91,6 +95,7 @@ class ViecDangLam : AppCompatActivity(),Results {
     val listGiaoHang = ArrayList<Job>()
     val listHeader = ArrayList<String>()
     lateinit var adapter:AdapterCongViec
+    var update = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -131,8 +136,9 @@ class ViecDangLam : AppCompatActivity(),Results {
                     Log.e("lat after update",lat)
                     Log.e("lng after update",lng)
                 }
-                if(this@ViecDangLam.job != null){
+                if(this@ViecDangLam.job != null && update){
                     handlerP.checkin(this@ViecDangLam.job!!,mode,lat,lng)
+                    update = false
                 }
 
                 super.onLocationResult(locationResult)
@@ -163,6 +169,7 @@ class ViecDangLam : AppCompatActivity(),Results {
     private fun init() {
         expandableListView = findViewById(R.id.expan_cong_viec)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Đơn Hàng Đang Làm"
         handlerP = HandlerP(this,this)
     }
 

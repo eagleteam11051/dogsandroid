@@ -89,7 +89,9 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         Log.e("onStart","run")
         initNumberJob()
         //loadJobs()
-        mHandler = Handler()
+        if(mHandler == null){
+            mHandler = Handler()
+        }
         startRepeatingTask()
     }
 
@@ -138,7 +140,12 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     override fun onNewIntent(intent: Intent) {
-        handlerP.getJobs()
+        initNumberJob()
+        //loadJobs()
+        if(mHandler == null){
+            mHandler = Handler()
+        }
+        startRepeatingTask()
         super.onNewIntent(intent)
     }
 

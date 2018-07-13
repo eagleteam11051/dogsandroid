@@ -34,6 +34,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viec_dang_co)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Những Đơn Hàng Đang Có"
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
@@ -192,6 +193,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
 
 
     private fun updateMap() {
+        mMap.clear()
         if(jobs!= null){
             for(item in jobs!!){
 
@@ -208,10 +210,13 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
     }
 
     override fun showError() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Var.jobs?.clear()
+        this.jobs?.clear()
+        updateMap()
     }
     override fun showSuccess() {
         Toast.makeText(this,"Đã nhận đơn hàng thành công!, kiểm tra trong mục chờ duyệt",Toast.LENGTH_SHORT).show()
+        handlerP.getJobs()
     }
 
     override fun returnJobs(jobs: ArrayList<Job>) {

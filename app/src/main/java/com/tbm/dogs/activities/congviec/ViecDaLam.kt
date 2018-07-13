@@ -28,6 +28,7 @@ class ViecDaLam : AppCompatActivity() {
     private fun init() {
         expandableListView = findViewById(R.id.expan_cong_viec)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Đơn Hàng Đã Làm"
     }
 
     private fun initList() {
