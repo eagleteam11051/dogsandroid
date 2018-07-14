@@ -61,6 +61,7 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
 
     override fun getChildView(i: Int, i1: Int, b: Boolean, view: View?, viewGroup: ViewGroup): View {
         var view = view
+        val job = getChild(i, i1) as Job
         if(mode == 0){
             //job
 
@@ -71,8 +72,8 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
 
             val tItem = view!!.findViewById<TextView>(R.id.tItem)
             val tTime = view.findViewById<TextView>(R.id.tTime)
-            tItem.text = (getChild(i, i1) as Job).note
-            tTime.text = (getChild(i, i1) as Job).create_time
+            tItem.text = job.description
+            tTime.text = job.create_time
         }else{
             //job working
             if (view == null) {
@@ -83,6 +84,11 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
             val tItem = view!!.findViewById<TextView>(R.id.tItem)
             val tTime = view.findViewById<TextView>(R.id.tTime)
             val bNhanHang = view.findViewById<Button>(R.id.bNhanHang)
+            if(job.status == "5"){
+                bNhanHang.setBackgroundResource(R.drawable.bg_done)
+                bNhanHang.text = "Đã Nhận"
+                bNhanHang.isEnabled = false
+            }
             bNhanHang.setOnClickListener {
                 Log.e("row","nhan hang")
                 handlerP?.checkinNhanHang((getChild(i, i1) as Job))
@@ -97,8 +103,8 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
                 Log.e("layout_row","clicked")
                 context.startActivity(Intent(context, ChiTietCongViec::class.java).putExtra("job",getChild(i, i1) as Job))
             }
-            tItem.text = (getChild(i, i1) as Job).note
-            tTime.text = (getChild(i, i1) as Job).create_time
+            tItem.text = job.description
+            tTime.text = job.create_time
         }
 
         return view

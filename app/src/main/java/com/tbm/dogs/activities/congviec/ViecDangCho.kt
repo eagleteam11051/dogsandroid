@@ -55,6 +55,7 @@ class ViecDangCho : AppCompatActivity() {
         //setup adapter for ExpandableListView
         val adapter = AdapterCongViec(this, listHeader, data, 0)
         expandableListView.setAdapter(adapter)
+        expandableListView.expandGroup(0)
         expandableListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
             Log.e(TAG, "onChildClick: " + listHeader[groupPosition] + ", " + data[listHeader[groupPosition]]!!.get(childPosition))
             true

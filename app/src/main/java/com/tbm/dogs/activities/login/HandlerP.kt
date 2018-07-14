@@ -17,6 +17,11 @@ import java.net.URL
 
 class HandlerP(internal var results: Results) {
 
+    fun actionLogin(userName:String,passWord:String){
+        results.showDialog()
+        handlerLogin().execute(Var.API_SIGNIN,userName,passWord, Var.currentTokenFCM)
+    }
+
     fun actionLogin(eUserName: EditText, ePassWord: EditText) {
         var b1 = false
         var b2 = false

@@ -27,7 +27,7 @@ class LaunchScreen : AppCompatActivity(){
                 this@LaunchScreen.startActivity(mainIntent)
                 this@LaunchScreen.finish()
             }else{
-                this@LaunchScreen.startActivity(Intent(this@LaunchScreen, Main::class.java).putExtra("shiper",info))
+                this@LaunchScreen.startActivity(Intent(this@LaunchScreen, Login::class.java).putExtra("shiper",info))
                 this@LaunchScreen.finish()
             }
         }, Var.delayLaunchScreen.toLong())

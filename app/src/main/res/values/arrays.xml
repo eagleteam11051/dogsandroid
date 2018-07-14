@@ -12,6 +12,7 @@
         <item>8 Tiếng</item>
     </string-array>
     <string-array name="phut">
+        <item>0 Phút</item>
         <item>5 Phút</item>
         <item>10 Phút</item>
         <item>15 Phút</item>

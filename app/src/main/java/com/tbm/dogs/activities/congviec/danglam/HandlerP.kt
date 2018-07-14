@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.tbm.dogs.Helper.Dates
 import com.tbm.dogs.Helper.Locations
 import com.tbm.dogs.Helper.Var
+import com.tbm.dogs.activities.main.HandlerP
 import com.tbm.dogs.model.obj.Job
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -58,7 +59,7 @@ class HandlerP(var results: Results,var context: Context) {
 
     fun getJobsWorking(){
         //api,hero_id,status,start_date,end_date,start
-        handlerJobsWorking().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"2",Dates().startDate(),Dates().endDate(),"0")
+        handlerJobsWorking().execute(Var.API_VINTER_GET_WORKING, Var.shiper?.hero_id, "3"/*,Dates().startDate(),Dates().endDate(),"0"*/)
     }
 
     inner class Checkin: AsyncTask<String, Void, String>(){
@@ -118,10 +119,11 @@ class HandlerP(var results: Results,var context: Context) {
             val uri = Uri.parse(strings[0])
                     .buildUpon()
                     .appendQueryParameter("hero_id", strings[1])
-                    .appendQueryParameter("status", strings[2])
-                    .appendQueryParameter("start_date",strings[3])
-                    .appendQueryParameter("end_date",strings[4])
-                    .appendQueryParameter("start",strings[5])
+                    .appendQueryParameter("service", strings[2])
+//                    .appendQueryParameter("status", strings[2])
+//                    .appendQueryParameter("start_date",strings[3])
+//                    .appendQueryParameter("end_date",strings[4])
+//                    .appendQueryParameter("start",strings[5])
                     .build()
             Log.e("jobWorking", uri.toString())
             var url: URL? = null

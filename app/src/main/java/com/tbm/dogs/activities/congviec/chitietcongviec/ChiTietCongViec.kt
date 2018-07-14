@@ -66,26 +66,6 @@ class ChiTietCongViec : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.menu_job_details, menu)
-//        return true
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        val id = item.itemId
-//
-//        if (id == R.id.action_settings) {
-//            return true
-//        }
-//
-//        return super.onOptionsItemSelected(item)
-//    }
-
     inner class SectionsPagerAdapter(fm: FragmentManager, array:ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
 
 
@@ -118,7 +98,8 @@ class ChiTietCongViec : AppCompatActivity() {
             rootView.tDiemGiao.text = "Điểm Giao: ${job.dropoff.address}"
             rootView.tKhoangCach.text = "Khoảng Cách: ${job.distance}Km"
             rootView.tSDT.text = "Số Điện Thoại: ${job.pickup.mobile}"
-            rootView.tYeuCau.text = "Yêu Cầu: ${job.note}"
+            rootView.tTenHang.text = "Tên Hàng: ${job.description}"
+            rootView.tKhoiLuong.text = "Khối Lượng Hàng: ${job.weight}Kg"
             val df2 = DecimalFormat("#,###,###,###")
             rootView.tThuHo.text = "Tiền Thu Hộ: ${df2.format(job.money_first.toDouble())}đ"
             return rootView
@@ -135,7 +116,6 @@ class ChiTietCongViec : AppCompatActivity() {
 
     }
     class MapFragment: Fragment(), OnMapReadyCallback, Results {
-
 
         lateinit var handlerP: HandlerP
         lateinit var job:Job
@@ -157,14 +137,8 @@ class ChiTietCongViec : AppCompatActivity() {
                 false
             }
 
-
-
             mMap.setMaxZoomPreference(50.0f)
             mMap.setMinZoomPreference(5.0f)
-            //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,15.0f));
-//            mMap.setOnMarkerClickListener(this)
-//            mMap.setInfoWindowAdapter(this)
-
         }
         private fun showLocationEnable() {
             val builder = AlertDialog.Builder(context)
@@ -189,10 +163,6 @@ class ChiTietCongViec : AppCompatActivity() {
             }catch (e:Exception){
                 Log.e("exception:",e.toString())
             }
-
-
-
-//            rootView.section_label.text = getString(R.string.section_format, arguments?.getInt(ARG_SECTION_NUMBER))
             return rootView
         }
 
@@ -210,8 +180,6 @@ class ChiTietCongViec : AppCompatActivity() {
 
             for (route in routes) {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 15f))
-//                (findViewById(R.id.tvDuration) as TextView).text = route.duration!!.text
-//                (findViewById(R.id.tvDistance) as TextView).text = route.distance!!.text
 
                 originMarkers.add(mMap.addMarker(MarkerOptions()
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.start_blue))
@@ -221,12 +189,9 @@ class ChiTietCongViec : AppCompatActivity() {
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.end_green))
                         .title(route.endAddress)
                         .position(route.endLocation!!)))
-
                 val polylineOptions = PolylineOptions().geodesic(true).color(Color.BLUE).width(10f)
-
                 for (i in route.points!!.indices)
                     polylineOptions.add(route.points!![i])
-
                 polylinePaths.add(mMap.addPolyline(polylineOptions))
             }
         }

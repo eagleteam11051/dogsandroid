@@ -34,11 +34,6 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
             it = Intent(this, ViecDangCo::class.java)
         }
 
-        //        it.setAction(Intent.ACTION_MAIN);
-        //        it.addCategory(Intent.CATEGORY_LAUNCHER);
-        //it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        //it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-
         val am = this.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val taskInfo = am.getRunningTasks(1)
         Log.e("topActivity", "CURRENT Activity ::" + taskInfo[0].topActivity.className)

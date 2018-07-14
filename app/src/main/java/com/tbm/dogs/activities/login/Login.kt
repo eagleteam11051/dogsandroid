@@ -8,11 +8,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.google.gson.Gson
 import com.tbm.dogs.Helper.Action
 import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.main.Main
+import com.tbm.dogs.model.obj.Shiper
 import kotlinx.android.synthetic.main.login.*
 
 class Login : AppCompatActivity(), Results {
@@ -56,10 +58,20 @@ class Login : AppCompatActivity(), Results {
         action.requestPermission(this, Var.permissions, Var.PermissionAll)
         Var.currentTokenFCM = shared.tokenFCM
         Log.e("currentToken:", Var.currentTokenFCM)
+        initLogin()
+    }
+
+    private fun initLogin(){
+        val user = shared.user
+        val pass = shared.pass
+        if(!user.isEmpty() && ! pass.isEmpty()){
+            handlerP.actionLogin(user,pass)
+        }
     }
 
     override fun saveInfoUser(response1: String) {
         shared.saveInfoShiper(response1)
+        shared.saveUserPass(/*eUserName.text.toString()*/"0945333445",/*ePassWord.text.toString()*/"123456")
     }
 
     override fun startMain(user: Bundle) {

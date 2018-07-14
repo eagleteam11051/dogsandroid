@@ -10,7 +10,7 @@
         android:src="@drawable/ic_shiper"
         android:paddingBottom="@dimen/_16sdp"
         android:paddingTop="@dimen/_16sdp"
-        android:paddingLeft="@dimen/_24sdp"
+        android:paddingLeft="@dimen/_32sdp"
         />
     <TextView
         android:id="@+id/tHeader"

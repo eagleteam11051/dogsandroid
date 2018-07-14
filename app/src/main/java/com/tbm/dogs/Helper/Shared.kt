@@ -9,6 +9,10 @@ class Shared(internal var context: Context) {
         get() = shared.getString("shiper", "")
     val tokenFCM: String
         get() = shared.getString("tokenfcm", "")
+    val user:String
+        get() = shared.getString("user","")
+    val pass:String
+        get() = shared.getString("pass","")
 
     init {
         shared = context.getSharedPreferences("dogs", Context.MODE_PRIVATE)
@@ -16,6 +20,11 @@ class Shared(internal var context: Context) {
 
     fun saveInfoShiper(s: String) {
         shared.edit().putString("shiper", s).apply()
+    }
+
+    fun saveUserPass(user:String,pass:String){
+        shared.edit().putString("user",user).apply()
+        shared.edit().putString("pass",pass).apply()
     }
 
     fun saveTokenFCM(token: String) {

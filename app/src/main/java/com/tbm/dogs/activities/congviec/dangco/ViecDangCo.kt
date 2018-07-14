@@ -109,6 +109,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         val bSau:Button = view.findViewById(R.id.bSau)
         val bTruoc:Button = view.findViewById(R.id.bTruoc)
         val tIndex:TextView = view.findViewById(R.id.tIndex)
+        val tTimeNull:TextView = view.findViewById(R.id.tTimeNull)
 
         fun date():String{
             val gioId = sGio.selectedItemPosition
@@ -127,14 +128,15 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
                 8 -> gio = "08"
             }
             when(phutId){
-                0 -> phut = "05"
-                1 -> phut = "10"
-                2 -> phut = "15"
-                3 -> phut = "20"
-                4 -> phut = "25"
-                5 -> phut = "30"
-                6 -> phut = "40"
-                7 -> phut = "50"
+                0 -> phut = "00"
+                1 -> phut = "05"
+                2 -> phut = "10"
+                3 -> phut = "15"
+                4 -> phut = "20"
+                5 -> phut = "25"
+                6 -> phut = "30"
+                7 -> phut = "40"
+                8 -> phut = "50"
             }
             Log.e("time:","$gio:$phut")
             return "$gio:$phut"
@@ -168,9 +170,13 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         }
 
         bNhanViec.setOnClickListener {
-            alertDialog?.dismiss()
-            //date()
-            handlerP.AcceptOrder(job.order_id,Var.shiper?.hero_id,date())
+            if(sPhut.selectedItemPosition == 0 && sGio.selectedItemPosition == 0){
+                tTimeNull.visibility = View.VISIBLE
+            }else{
+                alertDialog?.dismiss()
+                //date()
+                handlerP.AcceptOrder(job.order_id,Var.shiper?.hero_id,date())
+            }
         }
         val bTuChoi:Button = view.findViewById(R.id.bTuChoi)
         bTuChoi.setOnClickListener {
@@ -193,12 +199,12 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
 
 
     private fun updateMap() {
-        mMap.clear()
+
         if(jobs!= null){
             for(item in jobs!!){
 
                 // Add a marker in Sydney, Australia, and move the camera.
-                val sydney = LatLng(item.pickup.latitude.toDouble(), item.pickup.longitude.toDouble());
+                val sydney = LatLng(item.pickup.latitude.toDouble(), item.pickup.longitude.toDouble())
                 mMap.addMarker(MarkerOptions()
                         .position(sydney)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_shiper)))
@@ -216,6 +222,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
     }
     override fun showSuccess() {
         Toast.makeText(this,"Đã nhận đơn hàng thành công!, kiểm tra trong mục chờ duyệt",Toast.LENGTH_SHORT).show()
+        mMap.clear()
         handlerP.getJobs()
     }
 

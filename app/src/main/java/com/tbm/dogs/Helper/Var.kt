@@ -16,6 +16,7 @@ object Var {
     val API_DENY_ORDER = API + "CustomerDenyOrder/?"
     val API_SUCCESS = API + "OrderSuccess/?"
     val API_GET_ORDERS = API + "VinterGetOrders/?"
+    val API_VINTER_GET_WORKING = API + "VinterGetWorking/?"
     val API_GET_NEW_JOBS = API + "VinterGetNewJobs/?"
     val API_GET_ORDER_DETAILS = API + "VinterGetOrderDetails/?"
     val API_GET_TRANSACTIONS = API + "VinterGetTransactions/?"

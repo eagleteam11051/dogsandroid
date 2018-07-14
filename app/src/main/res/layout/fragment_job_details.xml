@@ -7,54 +7,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.congviec.chitietcongviec.ChiTietCongViec$DetailFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tDiemNhan"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="kdsjfksldfjaslfdldjsflsjdlfjsdlfjlsjdflkjsldfjasljfalsjdflksjflksjf"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tDiemGiao"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="kdsjfksldfjaslfdldjsflsjdlfjsdlfjlsjdflkjsldfjasljfalsjdflksjflksjf"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tKhoangCach"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="4Km"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tSDT"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="01688033930"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tTenHang"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="Yeu cau"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tKhoiLuong"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="Khoi luong"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tThuHo"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="tien thu ho"
+                />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tDiemNhan"
-        android:padding="@dimen/_16sdp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="kdsjfksldfjaslfdldjsflsjdlfjsdlfjlsjdflkjsldfjasljfalsjdflksjflksjf"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tDiemGiao"
-        android:padding="@dimen/_16sdp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="kdsjfksldfjaslfdldjsflsjdlfjsdlfjlsjdflkjsldfjasljfalsjdflksjflksjf"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tKhoangCach"
-        android:padding="@dimen/_16sdp"
-        android:textColor="@color/colorAccent"
-        android:text="4Km"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tSDT"
-        android:padding="@dimen/_16sdp"
-        android:textColor="@color/colorAccent"
-        android:text="01688033930"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tYeuCau"
-        android:padding="@dimen/_16sdp"
-        android:textColor="@color/colorAccent"
-        android:text="Yeu cau"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tThuHo"
-        android:padding="@dimen/_16sdp"
-        android:textColor="@color/colorAccent"
-        android:text="tien thu ho"
-        />
+    </ScrollView>
+
 
 </LinearLayout>
