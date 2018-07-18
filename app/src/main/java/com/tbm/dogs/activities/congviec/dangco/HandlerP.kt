@@ -43,6 +43,7 @@ class HandlerP(private val results: Results) {
         return jobs
     }
 
+
     fun getJobs() {
         handlerJobs().execute(Var.API_GET_NEW_JOBS, Var.shiper?.hero_id)
     }

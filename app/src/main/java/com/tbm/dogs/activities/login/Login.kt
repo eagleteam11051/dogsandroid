@@ -70,8 +70,11 @@ class Login : AppCompatActivity(), Results {
     }
 
     override fun saveInfoUser(response1: String) {
-        shared.saveInfoShiper(response1)
-        shared.saveUserPass(/*eUserName.text.toString()*/"0945333445",/*ePassWord.text.toString()*/"123456")
+        val info = Shared(this).infoShiper
+        if(info.isEmpty()){
+            shared.saveInfoShiper(response1)
+            shared.saveUserPass(eUserName.text.toString(),ePassWord.text.toString())
+        }
     }
 
     override fun startMain(user: Bundle) {

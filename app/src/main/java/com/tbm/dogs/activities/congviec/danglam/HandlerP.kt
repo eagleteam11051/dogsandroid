@@ -36,8 +36,6 @@ class HandlerP(var results: Results,var context: Context) {
         }
     }
 
-
-
     fun checkinGiaoHang(job: Job) {
         if(Locations.isLocationEnabled(context)){
             results.requestUpdate(job,2)

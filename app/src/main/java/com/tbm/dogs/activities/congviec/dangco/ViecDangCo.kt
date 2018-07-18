@@ -39,6 +39,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
                 .findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
         handlerP = HandlerP(this)
+        handlerP.getJobs()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

@@ -15,4 +15,6 @@ interface Results {
     fun showErrorJobsWaiting()
     fun showErrorJobsWorking()
     fun showErrorJobsDone()
+    fun requestUpdate()
+    fun showEnableLocation()
 }

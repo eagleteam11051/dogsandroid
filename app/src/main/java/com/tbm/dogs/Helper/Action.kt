@@ -5,6 +5,11 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.support.v4.app.ActivityCompat
+import android.util.Log
+import com.google.android.gms.common.GooglePlayServicesUtil
+import com.google.android.gms.common.ConnectionResult
+
+
 
 class Action {
     fun hasPermissions(context: Context?, vararg permissions: String): Boolean {
@@ -22,5 +27,23 @@ class Action {
         if (!hasPermissions(activity, *permissions)) {
             ActivityCompat.requestPermissions(activity, permissions, requestCode)
         }
+    }
+    fun checkServices(activity: Activity):Boolean{
+        // Check status of Google Play Services
+        val status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity)
+
+        // Check Google Play Service Available
+        try {
+            if (status != ConnectionResult.SUCCESS) {
+                GooglePlayServicesUtil.getErrorDialog(status, activity, 1).show()
+                return false
+            }else{
+                return true
+            }
+        } catch (e: Exception) {
+            Log.e("GooglePlayServiceUtil:", e.toString())
+            return false
+        }
+
     }
 }

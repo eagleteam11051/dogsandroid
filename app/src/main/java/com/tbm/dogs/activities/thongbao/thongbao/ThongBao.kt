@@ -25,7 +25,7 @@ class ThongBao : AppCompatActivity(),Results {
     override fun returnThongBaos(thongBaos: ArrayList<ThongBaoObj>) {
         viewAdapter.arrayThongBao.addAll(thongBaos)
         viewAdapter.notifyDataSetChanged()
-        if(thongBaos.size<20){
+        if(thongBaos.size<10){
             isLoadMore = false
         }
     }
@@ -73,7 +73,8 @@ class ThongBao : AppCompatActivity(),Results {
                     if (!recyclerView.canScrollVertically(1)) {
                         Log.e("last","...")
                         if(isLoadMore){
-                            indexStatus ++
+                            indexStatus += 10
+                            progressDialog.show()
                             handlerP.getThongBao(indexStatus)
                         }
                     }

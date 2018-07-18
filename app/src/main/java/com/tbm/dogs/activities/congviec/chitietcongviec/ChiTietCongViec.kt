@@ -101,7 +101,9 @@ class ChiTietCongViec : AppCompatActivity() {
             rootView.tTenHang.text = "Tên Hàng: ${job.description}"
             rootView.tKhoiLuong.text = "Khối Lượng Hàng: ${job.weight}Kg"
             val df2 = DecimalFormat("#,###,###,###")
-            rootView.tThuHo.text = "Tiền Thu Hộ: ${df2.format(job.money_first.toDouble())}đ"
+            rootView.tThuHo.text = "Tiền Thu Hộ: ${job.money_first}đ"//df2.format(job.money_first.toDouble())
+            rootView.tPhi.text = "Tiền Phí: ${job.fee}đ"//df2.format(job.fee.replace(".","").toDouble())}"
+            rootView.tTongTien.text = "Tổng Tiền: ${job.total}đ"//df2.format((job.fee.replace(".","").toInt()+job.money_first.toInt()).toDouble())}"
             return rootView
         }
         companion object {

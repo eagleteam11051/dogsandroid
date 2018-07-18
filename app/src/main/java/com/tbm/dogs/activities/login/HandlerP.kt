@@ -37,7 +37,7 @@ class HandlerP(internal var results: Results) {
         }
         if (b1 && b2) {
             results.showDialog()
-            handlerLogin().execute(Var.API_SIGNIN, "0945333445"/*eUserName.getText().toString()*/, "123456"/*ePassWord.getText().toString()*/, Var.currentTokenFCM)
+            handlerLogin().execute(Var.API_SIGNIN,eUserName.getText().toString(),ePassWord.getText().toString(), Var.currentTokenFCM)
         }
     }
 

@@ -1,10 +1,12 @@
 package com.tbm.dogs.activities.main
 
+import android.content.Context
 import android.net.Uri
 import android.os.AsyncTask
 import android.util.Log
 import com.google.gson.Gson
 import com.tbm.dogs.Helper.Dates
+import com.tbm.dogs.Helper.Locations
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.activities.congviec.danglam.HandlerP
 import com.tbm.dogs.model.obj.Job
@@ -17,7 +19,7 @@ import java.net.MalformedURLException
 import java.net.URL
 import java.util.*
 
-class HandlerP(private val results: Results) {
+class HandlerP(private val results: Results,var context :Context) {
     private var l = 0
     var gson: Gson
     var dates: Dates
@@ -51,6 +53,74 @@ class HandlerP(private val results: Results) {
         handlerJobsDone().execute(Var.API_GET_ORDERS, Var.shiper?.hero_id,"8",dates.startDate(),dates.endDate(),"0")
     }
 
+    fun postMyLocation() {
+        if(Locations.isLocationEnabled(context)){
+            results.requestUpdate()
+            //results.update(true)
+        }else{
+            results.showEnableLocation()
+        }
+    }
+
+    fun sendLocation(lat: String, lng: String) {
+        Log.e("sendLocation:","$lat-$lng")
+        handlerSendLocation().execute(Var.API_SEND_GEO_LOCATION,Var.shiper?.hero_id,lat,lng)
+    }
+
+
+    inner class handlerSendLocation: AsyncTask<String,Void,String>(){
+        internal var client = OkHttpClient()
+        override fun doInBackground(vararg strings: String): String? {
+            val uri = Uri.parse(strings[0])
+                    .buildUpon()
+                    .appendQueryParameter("hero_id", strings[1])
+                    .appendQueryParameter("latitude", strings[2])
+                    .appendQueryParameter("longitude",strings[3])
+//                    .appendQueryParameter("end_date",strings[4])
+//                    .appendQueryParameter("start",strings[5])
+                    .build()
+            Log.e("sendLocation", uri.toString())
+            var url: URL? = null
+            try {
+                url = URL(uri.toString())
+            } catch (e: MalformedURLException) {
+                e.printStackTrace()
+            }
+
+            val builder = Request.Builder()
+            builder.url(url!!)
+            builder.addHeader(Var.HEADER, Var.tokenOther)
+            val request = builder.build()
+            try {
+                val response = client.newCall(request).execute()
+                return response.body()!!.string()
+            } catch (e: IOException) {
+                Log.e("sendLocation:", e.toString())
+                results.showError()
+            }
+
+            return null
+        }
+
+        override fun onPostExecute(s: String) {
+            super.onPostExecute(s)
+            handlerResults(s)
+        }
+
+        private fun handlerResults(s: String) {
+            Log.e("sendLocation",s)
+            //parse job
+            //TODO
+            val jsonObject = JSONObject(s)
+            val status = jsonObject["status"]
+            if(status == "success"){
+                Log.e("sendLocation:",jsonObject["response"].toString())
+            }else{
+                //results.showErrorJobsDone()
+                Log.e("sendLocation:",jsonObject["response"].toString())
+            }
+        }
+    }
 
     inner class handlerJobsDone: AsyncTask<String,Void,String>(){
         internal var client = OkHttpClient()
@@ -109,6 +179,8 @@ class HandlerP(private val results: Results) {
                         jobs.add(job)
                     }
                     results.returnJobsDone(jobs)
+                }else{
+                    results.showErrorJobsDone()
                 }
             }else{
                 results.showErrorJobsDone()
@@ -174,6 +246,8 @@ class HandlerP(private val results: Results) {
                         jobs.add(job)
                     }
                     results.returnJobsWorking(jobs)
+                }else{
+                    results.showErrorJobsWorking()
                 }
             }else{
                 results.showErrorJobsWorking()
@@ -238,6 +312,8 @@ class HandlerP(private val results: Results) {
                         jobs.add(job)
                     }
                     results.returnJobsWaiting(jobs)
+                }else{
+                    results.showErrorJobsWaiting()
                 }
             }else{
                 results.showErrorJobsWaiting()
@@ -299,6 +375,8 @@ class HandlerP(private val results: Results) {
                         jobs.add(job)
                     }
                     results.returnJobs(jobs)
+                }else{
+                    results.showErrorJobs()
                 }
             }else{
                 results.showErrorJobs()

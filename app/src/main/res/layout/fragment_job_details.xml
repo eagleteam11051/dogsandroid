@@ -70,6 +70,22 @@
                 android:textColor="@color/colorAccent"
                 android:text="tien thu ho"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tPhi"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="tien phi"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tTongTien"
+                android:padding="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                android:text="tong tien"
+                />
         </LinearLayout>
 
     </ScrollView>
