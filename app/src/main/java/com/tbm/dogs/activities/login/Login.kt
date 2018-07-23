@@ -1,5 +1,6 @@
 package com.tbm.dogs.activities.login
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -8,13 +9,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.google.gson.Gson
 import com.tbm.dogs.Helper.Action
 import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.main.Main
-import com.tbm.dogs.model.obj.Shiper
 import kotlinx.android.synthetic.main.login.*
 
 class Login : AppCompatActivity(), Results {
@@ -38,17 +37,23 @@ class Login : AppCompatActivity(), Results {
 
     @SuppressLint("MissingPermission")
     private fun showForGot() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Thông báo!")
-        builder.setMessage("Bạn có muốn gọi tới tổng đài để yêu cầu cấp lại mật khẩu không?")
-        builder.setPositiveButton("OK") {
-            dialogInterface, i ->
+        if (!action.hasPermissions(this, Manifest.permission.CALL_PHONE)) {
+            action.requestPermission(this, arrayOf(Manifest.permission.CALL_PHONE),Var.PermissionAll)
+        }else{
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Thông báo!")
+            builder.setMessage("Bạn có muốn gọi tới tổng đài để yêu cầu cấp lại mật khẩu không?")
+            builder.setPositiveButton("OK") {
+                dialogInterface, i ->
                 dialogInterface.cancel()
-            val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.data = Uri.parse("tel:1800585852")
-            startActivity(callIntent)
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:1800585852")
+                startActivity(callIntent)
+            }
+            builder.create().show()
         }
-        builder.create().show()    }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

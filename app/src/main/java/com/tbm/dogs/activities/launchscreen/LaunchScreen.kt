@@ -11,7 +11,6 @@ import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.login.Login
-import com.tbm.dogs.activities.main.Main
 
 class LaunchScreen : AppCompatActivity(){
 
@@ -37,6 +36,8 @@ class LaunchScreen : AppCompatActivity(){
                     this@LaunchScreen.finish()
                 }
             }, Var.delayLaunchScreen.toLong())
+        }else{
+            Toast.makeText(this,"Máy của bạn hiện chưa cài đặt dịch vụ của Google, ứng dụng cần sử dụng dịch vụ của Google!",Toast.LENGTH_LONG).show()
         }
 
     }

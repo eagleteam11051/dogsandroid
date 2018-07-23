@@ -1,5 +1,6 @@
 package com.tbm.dogs.activities.congviec.danglam
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -13,6 +14,8 @@ import android.view.MenuItem
 import android.widget.ExpandableListView
 import android.widget.Toast
 import com.google.android.gms.location.*
+import com.tbm.dogs.Helper.Action
+import com.tbm.dogs.Helper.SMSUtils
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.congviec.chitietcongviec.ChiTietCongViec
@@ -22,6 +25,25 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ViecDangLam : AppCompatActivity(),Results {
+    override fun showDeadLine() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Bạn không thể nhận đơn hàng này!")
+        builder.setMessage("Đơn hàng này đã quá hạn.")
+        builder.setPositiveButton("OK") {
+            dialogInterface, i ->
+            dialogInterface.cancel()
+        }
+        builder.create().show()
+    }
+
+    override fun hasPermis(): Boolean {
+        return Action().hasPermissions(this, Manifest.permission.SEND_SMS)
+    }
+
+    override fun requestPermis() {
+        Action().requestPermission(this, arrayOf(Manifest.permission.SEND_SMS),Var.PermissionAll)
+    }
+
     override fun update(b: Boolean) {
         update = b
     }
@@ -53,8 +75,11 @@ class ViecDangLam : AppCompatActivity(),Results {
         Toast.makeText(this,response,Toast.LENGTH_SHORT).show()
     }
 
-    override fun showSuccess(mode: Int) {
+    override fun showSuccess(job:Job,mode: Int) {
         Toast.makeText(this,"Cập nhật trạng thái thành công!",Toast.LENGTH_SHORT).show()
+        if(mode == 1){
+            SMSUtils.sendSMS(this,job.phone_number,"Shiper bắt đầu đi giao hàng với khoảng cách là: ${job.distance}Km, tổng phí ship + tiền hàng là: ${job.total}đ, Phiền quý khách luôn mở điện thoại để không bỏ lỡ gói hàng. Xin Cảm ơn!")
+        }
         reload()
     }
 
@@ -109,6 +134,7 @@ class ViecDangLam : AppCompatActivity(),Results {
         requestLocationUpdate()
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Đang xử lý...")
+        progressDialog.setCancelable(false)
     }
 
     private fun reload(){

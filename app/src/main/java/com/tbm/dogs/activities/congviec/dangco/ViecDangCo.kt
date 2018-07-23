@@ -2,14 +2,21 @@ package com.tbm.dogs.activities.congviec.dangco
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.TimePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.provider.Settings
 import android.support.v7.app.AppCompatActivity
+import android.telephony.SmsManager
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.RelativeLayout
+import android.widget.TextView
+import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -19,9 +26,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.tbm.dogs.Helper.Locations
+import com.tbm.dogs.Helper.SMSUtils
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.model.obj.Job
+import java.util.*
 
 
 class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.OnMarkerClickListener {
@@ -29,6 +38,11 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
     private var jobs: ArrayList<Job>? = null
     private lateinit var handlerP: HandlerP
     private lateinit var groupJob: ArrayList<Job>
+    private lateinit var currentJob: Job
+    private lateinit var currentPickedTime:String
+    private var mHandler: Handler? = null
+    private var currentTimeDeadLine:Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,9 +102,12 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
     }
 
     private fun showInfo(job: Job?) {
+        currentTimeDeadLine = job?.create_time_int?.toInt()!!
+
         this.groupJob = handlerP.getGroupJob(job)
         var job = groupJob[0]
         var index = 0
+        var picked = false
 
         val builder = AlertDialog.Builder(this)
         var alertDialog:AlertDialog? = null
@@ -103,49 +120,89 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
 
         val tKhoangCach: TextView = view.findViewById(R.id.tKhoangCach)
 
-        val sGio: Spinner = view.findViewById(R.id.sGio)
-        val sPhut: Spinner = view.findViewById(R.id.sPhut)
+
         val bNhanViec:Button = view.findViewById(R.id.bNhanViec)
         val layoutNext:RelativeLayout = view.findViewById(R.id.layout_next_job)
         val bSau:Button = view.findViewById(R.id.bSau)
         val bTruoc:Button = view.findViewById(R.id.bTruoc)
         val tIndex:TextView = view.findViewById(R.id.tIndex)
         val tTimeNull:TextView = view.findViewById(R.id.tTimeNull)
+        val tKhoiLuong:TextView = view.findViewById(R.id.tKhoiLuong)
+        val tGiaTri:TextView = view.findViewById(R.id.tGiaTri)
+        val tPhiShip:TextView = view.findViewById(R.id.tPhiShip)
+        val tDeadLine:TextView = view.findViewById(R.id.tDeadLine)
 
-        fun date():String{
-            val gioId = sGio.selectedItemPosition
-            val phutId = sPhut.selectedItemPosition
-            var gio = ""
-            var phut = ""
-            when(gioId){
-                0 -> gio = "00"
-                1 -> gio = "01"
-                2 -> gio = "02"
-                3 -> gio = "03"
-                4 -> gio = "04"
-                5 -> gio = "05"
-                6 -> gio = "06"
-                7 -> gio = "07"
-                8 -> gio = "08"
+        //**************
+        fun updateDeadLine() {
+            val delta = currentTimeDeadLine - (System.currentTimeMillis()/1000)
+            val gio = delta / 60 / 60
+            val phut = (delta / 60) % 60
+            val s = delta % 60
+            if(gio<0 || phut<0 || s<0){
+                tDeadLine.setTextColor(Color.RED)
+            }else{
+                tDeadLine.setTextColor(Color.GREEN)
             }
-            when(phutId){
-                0 -> phut = "00"
-                1 -> phut = "05"
-                2 -> phut = "10"
-                3 -> phut = "15"
-                4 -> phut = "20"
-                5 -> phut = "25"
-                6 -> phut = "30"
-                7 -> phut = "40"
-                8 -> phut = "50"
-            }
-            Log.e("time:","$gio:$phut")
-            return "$gio:$phut"
+            tDeadLine.text = "⏰$gio:$phut:$s"
         }
+
+        var mStatusChecker: Runnable = object : Runnable {
+            override fun run() {
+                try {
+                    updateDeadLine()
+                } finally {
+                    mHandler?.postDelayed(this, 1000)
+                }
+            }
+        }
+
+        fun stopRepeatingTask() {
+            mHandler?.removeCallbacks(mStatusChecker)
+        }
+        fun stopTask() {
+            stopRepeatingTask()
+        }
+
+
+
+
+        fun startRepeatingTask() {
+            mStatusChecker.run()
+        }
+
+        fun startTask() {
+            if(mHandler == null){
+                mHandler = Handler()
+            }
+            startRepeatingTask()
+        }
+
+        startTask()
+        //********************
+
+        val bThoiGian:Button = view.findViewById(R.id.bThoiGian)
+        bThoiGian.setOnClickListener {
+            // TODO Auto-generated method stub
+            val mcurrentTime = Calendar.getInstance()
+            val hour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
+            val minute = mcurrentTime.get(Calendar.MINUTE)
+            val mTimePicker: TimePickerDialog
+            mTimePicker = TimePickerDialog(this@ViecDangCo, TimePickerDialog.OnTimeSetListener {
+                timePicker, selectedHour, selectedMinute ->
+                bThoiGian.setText(selectedHour.toString() + ":" + selectedMinute)
+                picked = true
+            }, hour, minute, true)//Yes 24 hour time
+            mTimePicker.setTitle("Chọn Thời gian đáp ứng")
+            mTimePicker.show()
+        }
+
         fun update(){
             tDiemNhan.text = "Điểm Nhận: ${job?.pickup!!.address}"
             tDiemGiao.text = "Điểm Giao: ${job?.dropoff.address}"
             tKhoangCach.text =  "Khoảng Cách: ${job.distance}Km"
+            tKhoiLuong.text = "Khối Lượng: ${job.weight}Kg"
+            tGiaTri.text = "Giá Trị: ${job.money_first}đ"
+            tPhiShip.text = "Phí Ship: ${job.fee}đ"
             tIndex.text = "${index+1}/${groupJob.size}"
         }
         update()
@@ -171,27 +228,23 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         }
 
         bNhanViec.setOnClickListener {
-            if(sPhut.selectedItemPosition == 0 && sGio.selectedItemPosition == 0){
+            if(!picked){
                 tTimeNull.visibility = View.VISIBLE
             }else{
                 alertDialog?.dismiss()
+                stopTask()
                 //date()
-                handlerP.AcceptOrder(job.order_id,Var.shiper?.hero_id,date())
+                currentJob = job
+                currentPickedTime = bThoiGian.text.toString()
+                handlerP.AcceptOrder(job.order_id,Var.shiper?.hero_id,bThoiGian.text.toString())
             }
         }
         val bTuChoi:Button = view.findViewById(R.id.bTuChoi)
         bTuChoi.setOnClickListener {
             alertDialog?.dismiss()
+            stopTask()
         }
 
-        val adapterGio = ArrayAdapter.createFromResource(this,
-                R.array.gio, android.R.layout.simple_spinner_item)
-        adapterGio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        val adapterPhut = ArrayAdapter.createFromResource(this,
-                R.array.phut, android.R.layout.simple_spinner_item)
-        adapterPhut.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        sGio.adapter = adapterGio
-        sPhut.adapter = adapterPhut
         builder.setView(view)
         builder.setCancelable(false)
         alertDialog = builder.create()
@@ -221,10 +274,26 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         this.jobs?.clear()
         updateMap()
     }
-    override fun showSuccess() {
+    override fun showSuccess(phone_number:String) {
         Toast.makeText(this,"Đã nhận đơn hàng thành công!, kiểm tra trong mục chờ duyệt",Toast.LENGTH_SHORT).show()
         mMap.clear()
         handlerP.getJobs()
+        Log.e("phone",phone_number)
+        Log.e("nd:","Shiper ${Var.shiper?.fullname}, số điện thoại ${Var.shiper?.mobile} sẽ đến lấy hàng vào lúc ${currentPickedTime} phút")
+        //sendSMS(phone_number, "Shiper ${Var.shiper?.fullname}, số điện thoại ${Var.shiper?.mobile} sẽ đến lấy hàng vào lúc ${currentPickedTime}phút");
+        SMSUtils.sendSMS(this,phone_number,"Shiper ${Var.shiper?.fullname}, số điện thoại ${Var.shiper?.mobile} sẽ đến lấy hàng vào lúc ${currentPickedTime} phút")
+    }
+
+    //Sends an SMS message to another device
+
+    private fun sendSMS(phoneNumber: String, message: String) {
+        val sms = SmsManager.getDefault()
+        try{
+            sms.sendTextMessage(phoneNumber, null, message, null, null)
+
+        }catch (e:Exception){
+            Log.e("sendSMS:",e.toString())
+        }
     }
 
     override fun returnJobs(jobs: ArrayList<Job>) {
@@ -232,4 +301,6 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         this.jobs = jobs
         updateMap()
     }
+
+
 }

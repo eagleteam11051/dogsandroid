@@ -42,7 +42,9 @@ object Var {
             Manifest.permission.ACCESS_NETWORK_STATE,
             Manifest.permission.GET_TASKS,
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.CALL_PHONE)
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.SEND_SMS/*,
+            Manifest.permission.READ_PHONE_STATE*/)
     var jobs: ArrayList<Job>? = null
     var jobsWaiting: ArrayList<Job>? = null
     var jobsWorking: ArrayList<Job>? = null

@@ -17,7 +17,7 @@
                 android:layout_marginTop="@dimen/_16sdp"
                 android:paddingLeft="@dimen/_8sdp"
                 android:paddingRight="@dimen/_8sdp"
-                android:visibility="gone"
+                android:visibility="visible"
                 >
                 <Button
                     android:id="@+id/bSau"
@@ -45,13 +45,16 @@
                     android:background="@drawable/bg_truoc"
                     />
             </RelativeLayout>
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tDiemNhan"
                 android:layout_below="@+id/layout_next_job"
                 android:text="Diem nhan: Ngõ 5 Đê Nông Lâm, Quyết Thắng, Thành phố Thái Nguyên, Thái Nguyên, Vietnam"
-                android:padding="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="@dimen/_16sdp"
                 />
@@ -61,7 +64,8 @@
                 android:id="@+id/tDiemGiao"
                 android:layout_below="@+id/tDiemNhan"
                 android:text="Diem giao: Trường Đại học Công nghệ Thông tin  Truyền thông Thái Nguyên, Z115, Thành phố Thái Nguyên"
-                android:padding="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
                 android:textColor="@color/colorPrimaryDark"
                 />
             <TextView
@@ -70,39 +74,73 @@
                 android:id="@+id/tKhoangCach"
                 android:text="Khoang cach: 4.0km"
                 android:layout_below="@+id/tDiemGiao"
-                android:padding="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tKhoiLuong"
+                android:text="Khoi Luong: 4.0km"
+                android:layout_below="@+id/tKhoangCach"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tGiaTri"
+                android:text="Gia tri: 4.0km"
+                android:layout_below="@+id/tKhoiLuong"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tPhiShip"
+                android:text="Phi ship: 4.0km"
+                android:layout_below="@+id/tGiaTri"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
                 android:textColor="@color/colorAccent"
                 />
             <TextView
                 android:id="@+id/tThoiGian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tKhoangCach"
+                android:layout_below="@+id/tPhiShip"
                 android:text="Thời gian:"
                 android:padding="@dimen/_16sdp"
                 android:textColor="@color/colorAccent"
                 />
-            <Spinner
+
+            <Button
+                android:id="@+id/bThoiGian"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_alignBaseline="@+id/tThoiGian"
+                android:layout_toEndOf="@+id/tThoiGian"
+                android:background="@drawable/bg_chon_thoigian"
+                android:text="Chọn giờ"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/sGio"
-                android:layout_toRightOf="@id/tThoiGian"
-                android:layout_below="@+id/tKhoangCach"
-                android:text="00"
-                android:textColor="@color/colorPrimaryDark"
-                android:padding="@dimen/_16sdp"
+                android:id="@+id/tDeadLine"
+                android:layout_alignBaseline="@id/bThoiGian"
+                android:layout_toRightOf="@id/bThoiGian"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:textSize="@dimen/_16sdp"
+                android:text="⏰00:00:00"
+                android:textColor="@color/colorAccent"
                 />
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/sPhut"
-                android:layout_toRightOf="@+id/sGio"
-                android:layout_below="@+id/tKhoangCach"
-                android:text="00"
-                android:textColor="@color/colorPrimaryDark"
-                android:paddingTop="@dimen/_16sdp"
-                android:paddingBottom="@dimen/_16sdp"
-                />
+
             <TextView
                 android:id="@+id/tTimeNull"
                 android:layout_width="wrap_content"
@@ -110,7 +148,7 @@
                 android:text="Chưa chọn thời gian giao hàng!"
                 android:textColor="@color/colorRed"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/sPhut"
+                android:layout_below="@+id/bThoiGian"
                 android:visibility="gone"
                 />
             <Button
@@ -118,12 +156,12 @@
                 android:layout_height="wrap_content"
                 android:text="Nhận việc"
                 android:id="@+id/bNhanViec"
-                android:layout_below="@+id/sPhut"
+                android:layout_below="@+id/bThoiGian"
                 android:background="@drawable/bg_login"
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="@dimen/_32sdp"
                 android:layout_marginRight="@dimen/_32sdp"
-                android:layout_marginTop="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginBottom="@dimen/_12sdp"
                 />
             <Button

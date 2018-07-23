@@ -6,10 +6,8 @@ import android.net.Uri
 import android.os.AsyncTask
 import android.util.Log
 import com.google.gson.Gson
-import com.tbm.dogs.Helper.Dates
 import com.tbm.dogs.Helper.Locations
 import com.tbm.dogs.Helper.Var
-import com.tbm.dogs.activities.main.HandlerP
 import com.tbm.dogs.model.obj.Job
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -24,16 +22,29 @@ import java.util.*
 class HandlerP(var results: Results,var context: Context) {
 
     var mode = 0
+    lateinit var job:Job
 
     @SuppressLint("MissingPermission")
     fun checkinNhanHang(job: Job) {
-        if(Locations.isLocationEnabled(context)){
-            results.requestUpdate(job,1)
-            results.showDialog()
-            results.update(true)
+        if(!results.hasPermis()){
+            results.requestPermis()
         }else{
-            results.showEnableLocation()
+            //TODO kiem tra thoi gian shiper chon va thoi gian con lai cua don hang
+            if(job.create_time_int.toInt() - (System.currentTimeMillis()/1000) <= 0){
+                results.showDeadLine()
+            }else{
+                if(Locations.isLocationEnabled(context)){
+                    results.requestUpdate(job,1)
+                    results.showDialog()
+                    results.update(true)
+                }else{
+                    results.showEnableLocation()
+                }
+            }
+
+
         }
+
     }
 
     fun checkinGiaoHang(job: Job) {
@@ -48,6 +59,7 @@ class HandlerP(var results: Results,var context: Context) {
 
     fun checkin(job: Job, mode: Int, lat: String, lng: String) {
         this.mode = mode
+        this.job = job
         if(mode == 1){
             Checkin().execute(Var.API_WORKING,job.order_id, Var.shiper?.hero_id,lat,lng)
         }else{
@@ -105,7 +117,7 @@ class HandlerP(var results: Results,var context: Context) {
             val status = jsonObject["status"]
             val response = jsonObject["response"]
             if(status == "success"){
-                results.showSuccess(mode)
+                results.showSuccess(this@HandlerP.job,mode)
             }else{
                 results.showError(response.toString())
             }

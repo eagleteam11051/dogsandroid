@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.provider.Settings
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -16,6 +17,8 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -37,14 +40,73 @@ class ChiTietCongViec : AppCompatActivity() {
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     lateinit var job:Job
+    private var mHandler: Handler? = null
+    private var currentTimeDeadLine:Int = 0
+    private lateinit var bBack: Button
+    private lateinit var tDeadLine:TextView
 
+
+    fun updateDeadLine() {
+        val delta = currentTimeDeadLine - (System.currentTimeMillis()/1000)
+        val gio = delta / 60 / 60
+        val phut = (delta / 60) % 60
+        val s = delta % 60
+
+        if(gio<0 || phut<0 || s<0){
+            tDeadLine.setTextColor(Color.RED)
+        }else{
+            tDeadLine.setTextColor(Color.WHITE)
+        }
+        tDeadLine.text = "⏰$gio:$phut:$s"
+    }
+    var mStatusChecker: Runnable = object : Runnable {
+        override fun run() {
+            try {
+                updateDeadLine()
+            } finally {
+                mHandler?.postDelayed(this, 1000)
+            }
+        }
+    }
+
+    fun stopRepeatingTask() {
+        mHandler?.removeCallbacks(mStatusChecker)
+    }
+    fun stopTask() {
+        stopRepeatingTask()
+    }
+    fun startRepeatingTask() {
+        mStatusChecker.run()
+    }
+    fun startTask() {
+        if(mHandler == null){
+            mHandler = Handler()
+        }
+        startRepeatingTask()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopTask()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chitiet_congviec)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Chi Tiết Đơn Hàng"
+        supportActionBar?.hide()
+
+        bBack = findViewById(R.id.bBack)
+        bBack.setOnClickListener {
+            finish()
+        }
+        tDeadLine = findViewById(R.id.tDeadLine)
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar?.title = "Chi Tiết Đơn Hàng"
         job = intent.getSerializableExtra("job") as Job
+
+        currentTimeDeadLine = job.create_time_int.toInt()
+        startTask()
+
         Log.e("job_id",job.order_id)
         val arrayFragment = ArrayList<Fragment>()
         val detail = DetailFragment.newInstance(job)
@@ -56,9 +118,6 @@ class ChiTietCongViec : AppCompatActivity() {
         container.adapter = mSectionsPagerAdapter
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
-
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -89,15 +148,19 @@ class ChiTietCongViec : AppCompatActivity() {
 
         lateinit var job:Job
 
+
+
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
+
             this.job = arguments?.getSerializable("job") as Job
             Log.e("job:",job.order_id)
             val rootView = inflater.inflate(R.layout.fragment_job_details, container, false)
             rootView.tDiemNhan.text = "Điểm Nhận: ${job.pickup.address}"
             rootView.tDiemGiao.text = "Điểm Giao: ${job.dropoff.address}"
             rootView.tKhoangCach.text = "Khoảng Cách: ${job.distance}Km"
-            rootView.tSDT.text = "Số Điện Thoại: ${job.pickup.mobile}"
+            rootView.tSDTA.text = "Số Điện Thoại Gửi: ${job.pickup.mobile}"
+            rootView.tSDTB.text = "Số Điện Thoại Nhận: ${job.phone_number}"
             rootView.tTenHang.text = "Tên Hàng: ${job.description}"
             rootView.tKhoiLuong.text = "Khối Lượng Hàng: ${job.weight}Kg"
             val df2 = DecimalFormat("#,###,###,###")
