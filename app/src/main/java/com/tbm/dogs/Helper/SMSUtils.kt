@@ -20,10 +20,10 @@ class SMSUtils : BroadcastReceiver() {
             when (resultCode) {
                 Activity.RESULT_OK // Sms sent
                 -> Log.e("sms:","sms send")
-                    //Toast.makeText(context, "sms_send", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "sms_send", Toast.LENGTH_LONG).show()
                 SmsManager.RESULT_ERROR_GENERIC_FAILURE // generic failure
                 -> Log.e("sms:","sms not send")
-                    //Toast.makeText(context, "sms_not_send", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "sms_not_send", Toast.LENGTH_LONG).show()
                 SmsManager.RESULT_ERROR_NO_SERVICE // No service
                 -> Log.e("sms:","sms not send no service")//Toast.makeText(context, "sms not send no service", Toast.LENGTH_LONG).show()
                 SmsManager.RESULT_ERROR_NULL_PDU // null pdu
@@ -65,7 +65,7 @@ class SMSUtils : BroadcastReceiver() {
 
             val smsUtils = SMSUtils()
             //register for sending and delivery
-            context.registerReceiver(smsUtils, IntentFilter(SMSUtils.SENT_SMS_ACTION_NAME))
+            context.registerReceiver(smsUtils, IntentFilter(SENT_SMS_ACTION_NAME))
             context.registerReceiver(smsUtils, IntentFilter(DELIVERED_SMS_ACTION_NAME))
 
             val sms = SmsManager.getDefault()

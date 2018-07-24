@@ -8,7 +8,6 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.support.v7.app.AppCompatActivity
-import android.telephony.CellLocation.requestLocationUpdate
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -104,6 +103,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         buildLocationCallBack()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         requestLocationUpdate()
+        //SMSUtils.sendSMS(this,"01688033930","shiper x se den giao hang trong 7k,, tong gia tien la 199999, moi bajn online de")
     }
 
     private fun buildLocationCallBack() {
