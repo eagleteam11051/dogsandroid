@@ -19,7 +19,7 @@ class ChiTietThongBao : AppCompatActivity() {
     }
 
     private fun initNotification() {
-        tTitle.text = thongBaoObj.created_time
+        tTitle.text = "⏰${thongBaoObj.created_time}"
         tBody.text = thongBaoObj.message
     }
 

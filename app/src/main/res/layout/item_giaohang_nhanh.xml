@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/bGiaoHangNhanh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_2sdp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_4sdp"
+            >
+
+            <TextView
+                android:id="@+id/tDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Don hang A"
+                android:textColor="@color/colorAccent"
+                />
+
+            <TextView
+                android:id="@+id/tTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:text="T5, 24/7/2018"
+                android:textColor="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/tKhoiLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tDescription"
+                android:text="Khoi Luong"
+                android:textColor="@color/colorAccent"
+                />
+
+            <TextView
+                android:id="@+id/tKhoangCach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tKhoiLuong"
+                android:text="So KM"
+                android:textColor="@color/colorAccent"
+                />
+
+            <TextView
+                android:id="@+id/tGiaTri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tKhoangCach"
+                android:text="Gia tri"
+                android:textColor="@color/colorAccent"/>
+
+            <TextView
+                android:id="@+id/tTienNhan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tGiaTri"
+                android:text="Tien Duoc Nhan"
+                android:textColor="@color/colorAccent"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

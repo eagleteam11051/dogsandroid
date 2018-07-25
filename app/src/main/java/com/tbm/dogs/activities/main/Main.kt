@@ -20,8 +20,8 @@ import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.Helper.Var.shiper
 import com.tbm.dogs.R
-import com.tbm.dogs.activities.congviec.ViecDaLam
 import com.tbm.dogs.activities.congviec.ViecDangCho
+import com.tbm.dogs.activities.congviec.dalam.ViecDaLam
 import com.tbm.dogs.activities.congviec.dangco.ViecDangCo
 import com.tbm.dogs.activities.congviec.danglam.ViecDangLam
 import com.tbm.dogs.activities.thongbao.thongbao.ThongBao
@@ -62,6 +62,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     var update = true
 
     internal fun init() {
+        supportActionBar?.title = "ShipX.vn"
         initShiper()
         initData()
         layout_viec_dang_lam.setOnClickListener(this)

@@ -32,33 +32,31 @@ import kotlinx.android.synthetic.main.fragment_job_details.view.*
 import java.text.DecimalFormat
 
 
-
-
-
 class ChiTietCongViec : AppCompatActivity() {
 
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
-    lateinit var job:Job
+    lateinit var job: Job
     private var mHandler: Handler? = null
-    private var currentTimeDeadLine:Int = 0
+    private var currentTimeDeadLine: Int = 0
     private lateinit var bBack: Button
-    private lateinit var tDeadLine:TextView
+    private lateinit var tDeadLine: TextView
 
 
     fun updateDeadLine() {
-        val delta = currentTimeDeadLine - (System.currentTimeMillis()/1000)
+        val delta = currentTimeDeadLine - (System.currentTimeMillis() / 1000)
         val gio = delta / 60 / 60
         val phut = (delta / 60) % 60
         val s = delta % 60
 
-        if(gio<0 || phut<0 || s<0){
+        if (gio < 0 || phut < 0 || s < 0) {
             tDeadLine.setTextColor(Color.RED)
-        }else{
+        } else {
             tDeadLine.setTextColor(Color.WHITE)
         }
         tDeadLine.text = "⏰$gio:$phut:$s"
     }
+
     var mStatusChecker: Runnable = object : Runnable {
         override fun run() {
             try {
@@ -69,17 +67,20 @@ class ChiTietCongViec : AppCompatActivity() {
         }
     }
 
-    fun stopRepeatingTask() {
+    private fun stopRepeatingTask() {
         mHandler?.removeCallbacks(mStatusChecker)
     }
-    fun stopTask() {
+
+    private fun stopTask() {
         stopRepeatingTask()
     }
-    fun startRepeatingTask() {
+
+    private fun startRepeatingTask() {
         mStatusChecker.run()
     }
-    fun startTask() {
-        if(mHandler == null){
+
+    private fun startTask() {
+        if (mHandler == null) {
             mHandler = Handler()
         }
         startRepeatingTask()
@@ -107,13 +108,13 @@ class ChiTietCongViec : AppCompatActivity() {
         currentTimeDeadLine = job.create_time_int.toInt()
         startTask()
 
-        Log.e("job_id",job.order_id)
+        Log.e("job_id", job.order_id)
         val arrayFragment = ArrayList<Fragment>()
         val detail = DetailFragment.newInstance(job)
         val mapF = MapFragment.newInstance(job)
         arrayFragment.add(detail)
         arrayFragment.add(mapF)
-        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager,arrayFragment)
+        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager, arrayFragment)
 
         container.adapter = mSectionsPagerAdapter
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
@@ -125,8 +126,7 @@ class ChiTietCongViec : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    inner class SectionsPagerAdapter(fm: FragmentManager, array:ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
-
+    inner class SectionsPagerAdapter(fm: FragmentManager, array: ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
 
 
         lateinit var arrayFragment: ArrayList<Fragment>
@@ -146,15 +146,14 @@ class ChiTietCongViec : AppCompatActivity() {
 
     class DetailFragment() : Fragment() {
 
-        lateinit var job:Job
-
+        lateinit var job: Job
 
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
 
             this.job = arguments?.getSerializable("job") as Job
-            Log.e("job:",job.order_id)
+            Log.e("job:", job.order_id)
             val rootView = inflater.inflate(R.layout.fragment_job_details, container, false)
             rootView.tDiemNhan.text = "Điểm Nhận: ${job.pickup.address}"
             rootView.tDiemGiao.text = "Điểm Giao: ${job.dropoff.address}"
@@ -169,21 +168,23 @@ class ChiTietCongViec : AppCompatActivity() {
             rootView.tTongTien.text = "Tổng Tiền: ${job.total}đ"//df2.format((job.fee.replace(".","").toInt()+job.money_first.toInt()).toDouble())}"
             return rootView
         }
+
         companion object {
-            fun newInstance(job:Job): DetailFragment {
+            fun newInstance(job: Job): DetailFragment {
                 val fragment = DetailFragment()
                 val args = Bundle()
-                args.putSerializable("job",job)
+                args.putSerializable("job", job)
                 fragment.arguments = args
                 return fragment
             }
         }
 
     }
-    class MapFragment: Fragment(), OnMapReadyCallback, Results {
+
+    class MapFragment : Fragment(), OnMapReadyCallback, Results {
 
         lateinit var handlerP: HandlerP
-        lateinit var job:Job
+        lateinit var job: Job
         lateinit var mMap: GoogleMap
         private var originMarkers = ArrayList<Marker>()
         private var destinationMarkers = ArrayList<Marker>()
@@ -196,7 +197,7 @@ class ChiTietCongViec : AppCompatActivity() {
             mMap = googleMap
             mMap.isMyLocationEnabled = true
             mMap.setOnMyLocationButtonClickListener {
-                if(!Locations.isLocationEnabled(context!!)){
+                if (!Locations.isLocationEnabled(context!!)) {
                     showLocationEnable()
                 }
                 false
@@ -205,12 +206,12 @@ class ChiTietCongViec : AppCompatActivity() {
             mMap.setMaxZoomPreference(50.0f)
             mMap.setMinZoomPreference(5.0f)
         }
+
         private fun showLocationEnable() {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Máy của bạn đang tắt chức năng định vị!")
             builder.setMessage("Bạn có muốn bật định vị không?")
-            builder.setPositiveButton("OK") {
-                dialogInterface, i ->
+            builder.setPositiveButton("OK") { dialogInterface, i ->
                 dialogInterface.cancel()
                 val callIntent = Intent(Settings.ACTION_SETTINGS)
                 startActivity(callIntent)
@@ -222,20 +223,20 @@ class ChiTietCongViec : AppCompatActivity() {
                                   savedInstanceState: Bundle?): View? {
             this.job = arguments?.getSerializable("job") as Job
             val rootView = inflater.inflate(R.layout.fragment_map_details, container, false)
-            try{
+            try {
                 val mapFragment = childFragmentManager!!.findFragmentById(R.id.mapDetail) as SupportMapFragment?
                 mapFragment!!.getMapAsync(this)
-            }catch (e:Exception){
-                Log.e("exception:",e.toString())
+            } catch (e: Exception) {
+                Log.e("exception:", e.toString())
             }
             return rootView
         }
 
         companion object {
-            fun newInstance(job:Job): MapFragment {
+            fun newInstance(job: Job): MapFragment {
                 val fragment = MapFragment()
                 val args = Bundle()
-                args.putSerializable("job",job)
+                args.putSerializable("job", job)
                 fragment.arguments = args
                 return fragment
             }

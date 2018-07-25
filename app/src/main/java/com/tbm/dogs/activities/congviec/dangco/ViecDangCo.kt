@@ -78,6 +78,8 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         }
         mMap.setMaxZoomPreference(50.0f)
         mMap.setMinZoomPreference(5.0f)
+        val sydney = LatLng(21.5975775, 105.8133112)
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,13.0f));
         mMap.setOnMarkerClickListener(this)
         this.jobs = Var.jobs
         updateMap()

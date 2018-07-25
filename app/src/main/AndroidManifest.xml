@@ -9,8 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE"/> -->
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -23,15 +23,9 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".activities.login.Login" />
         <activity android:name=".activities.main.Main" />
-        <activity
-            android:name=".activities.congviec.dangco.ViecDangCo"
-            />
-
-
-
+        <activity android:name=".activities.congviec.dangco.ViecDangCo" />
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -51,24 +45,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-        <activity
-            android:name=".activities.congviec.ViecDangCho"
-            />
-        <activity
-            android:name=".activities.congviec.danglam.ViecDangLam"
-            />
-        <activity
-            android:name=".activities.congviec.ViecDaLam"
-            />
+        <activity android:name=".activities.congviec.ViecDangCho" />
+        <activity android:name=".activities.congviec.danglam.ViecDangLam" />
+        <activity android:name=".activities.congviec.dalam.ViecDaLam" />
         <activity
             android:name=".activities.thongbao.ChiTietThongBao"
             android:launchMode="singleTop" />
-        <activity
-            android:name=".activities.congviec.chitietcongviec.ChiTietCongViec" />
-        <activity android:name=".activities.thongbao.thongbao.ThongBao"></activity>
-
+        <activity android:name=".activities.congviec.chitietcongviec.ChiTietCongViec" />
+        <activity android:name=".activities.thongbao.thongbao.ThongBao" />
 
         <service android:name=".Services.MyFirebaseIdService">
             <intent-filter>
@@ -80,6 +64,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD2kiwgq9e1qFi-z2-iEzdcbvloSNOweBo" />
@@ -92,10 +77,14 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="SMS_SENT"/>
-                <action android:name="SMS_DELIVERED"/>
+                <action android:name="SMS_SENT" />
+                <action android:name="SMS_DELIVERED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".activities.congviec.dalam.chitiet.ChiTietGiaoHangNhanh">
+
+        </activity>
     </application>
 
 </manifest>
