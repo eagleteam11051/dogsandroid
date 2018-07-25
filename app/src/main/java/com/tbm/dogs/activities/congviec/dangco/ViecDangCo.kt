@@ -133,6 +133,8 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         val tGiaTri:TextView = view.findViewById(R.id.tGiaTri)
         val tPhiShip:TextView = view.findViewById(R.id.tPhiShip)
         val tDeadLine:TextView = view.findViewById(R.id.tDeadLine)
+        val tMota:TextView = view.findViewById(R.id.tMoTa)
+        val tGhiChu:TextView = view.findViewById(R.id.tGhiChu)
 
         //**************
         fun updateDeadLine() {
@@ -206,6 +208,8 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
             tGiaTri.text = "Giá Trị: ${job.money_first}đ"
             tPhiShip.text = "Phí Ship: ${job.fee}đ"
             tIndex.text = "${index+1}/${groupJob.size}"
+            tMota.text = "Mô Tả: ${job.description}"
+            tGhiChu.text = "Ghi Chú: ${job.note}"
         }
         update()
         if(groupJob.size>1){

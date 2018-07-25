@@ -50,6 +50,7 @@ class ThongBao : AppCompatActivity(),Results {
         supportActionBar?.title = ""
         progressDialog = ProgressDialog(this).apply {
             setMessage("Đang tải thông báo, xin đợi!")
+            setCancelable(false)
         }
 
         viewManager = LinearLayoutManager(this)

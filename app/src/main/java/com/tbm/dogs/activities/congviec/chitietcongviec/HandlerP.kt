@@ -1,8 +1,11 @@
 package com.tbm.dogs.activities.congviec.chitietcongviec
 
+import android.content.Context
 import android.net.Uri
 import android.os.AsyncTask
 import android.util.Log
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.Volley
 import com.google.android.gms.maps.model.LatLng
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.model.obj.Job
@@ -14,14 +17,38 @@ import java.net.MalformedURLException
 import java.net.URL
 
 
-class HandlerP(var results: Results) {
+class HandlerP(var results: Results,val context: Context) {
+    var request:RequestQueue
+
+    init {
+        request = Volley.newRequestQueue(context)
+    }
+
 
 
     fun getDirection(job: Job) {
         getJsonDirection().execute(Var.MAP_DIRECTION_URL,"${job.pickup.latitude},${job.pickup.longitude}","${job.dropoff.latitude},${job.dropoff.longitude}",Var.MAP_DIRECTION_KEY)
     }
 
-    inner class getJsonDirection : AsyncTask<String,Void,String>(){
+//    fun getJsonDirection(url:String,latlngA:String,latlngB:String,directionKey:String){
+//        val stringRequest = object: StringRequest(Request.Method.GET,url,
+//                Response.Listener { response ->  parseJSon(response)},
+//                Response.ErrorListener { error ->  Log.e("getJsondirection",error.toString())}
+//        ){
+//            override fun getParams(): MutableMap<String, String> {
+//                //create map with key and value of parameters
+//                val param = HashMap<String,String>()
+//                param.put("origin",latlngA)
+//                param.put("destination",latlngB)
+//                param.put("key",directionKey)
+//                return param
+//            }
+//        }
+//        request.add(stringRequest)
+//    }
+
+
+    inner class getJsonDirection : AsyncTask<String, Void, String>(){
         internal var client = OkHttpClient()
         override fun doInBackground(vararg strings: String): String? {
             val uri = Uri.parse(strings[0])
@@ -60,9 +87,10 @@ class HandlerP(var results: Results) {
 
     }
 
-    public fun parseJSon(data: String?) {
+    fun parseJSon(data: String?) {
         if (data == null)
             return
+        Log.e("direction:",data)
 
         val routes = ArrayList<Route>()
         val jsonData = JSONObject(data)
@@ -89,7 +117,6 @@ class HandlerP(var results: Results) {
 
             routes.add(route)
         }
-
         results.onDirectionFinderSuccess(routes)
     }
 

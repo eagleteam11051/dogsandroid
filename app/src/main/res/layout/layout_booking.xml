@@ -71,9 +71,29 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tMoTa"
+                android:layout_below="@+id/tDiemGiao"
+                android:text="Mota"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tGhiChu"
+                android:layout_below="@+id/tMoTa"
+                android:text="Ghi chu"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/tKhoangCach"
                 android:text="Khoang cach: 4.0km"
-                android:layout_below="@+id/tDiemGiao"
+                android:layout_below="@+id/tGhiChu"
                 android:paddingLeft="@dimen/_16sdp"
                 android:paddingBottom="@dimen/_16sdp"
                 android:textColor="@color/colorAccent"
@@ -114,7 +134,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tPhiShip"
                 android:text="Thời gian:"
-                android:padding="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp"
                 android:textColor="@color/colorAccent"
                 />
 
@@ -127,6 +148,7 @@
                 android:background="@drawable/bg_chon_thoigian"
                 android:text="Chọn giờ"
                 android:textAllCaps="false"
+                android:layout_marginLeft="@dimen/_8sdp"
                 android:textColor="@color/colorAccent" />
 
             <TextView
@@ -135,10 +157,10 @@
                 android:id="@+id/tDeadLine"
                 android:layout_alignBaseline="@id/bThoiGian"
                 android:layout_toRightOf="@id/bThoiGian"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
                 android:textSize="@dimen/_16sdp"
                 android:text="⏰00:00:00"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
                 />
 
             <TextView
@@ -156,12 +178,12 @@
                 android:layout_height="wrap_content"
                 android:text="Nhận việc"
                 android:id="@+id/bNhanViec"
-                android:layout_below="@+id/bThoiGian"
+                android:layout_below="@+id/tThoiGian"
                 android:background="@drawable/bg_login"
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="@dimen/_32sdp"
                 android:layout_marginRight="@dimen/_32sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginBottom="@dimen/_12sdp"
                 />
             <Button

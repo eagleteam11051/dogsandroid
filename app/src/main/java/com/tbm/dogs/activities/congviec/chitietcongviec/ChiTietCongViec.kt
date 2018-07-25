@@ -192,7 +192,7 @@ class ChiTietCongViec : AppCompatActivity() {
 
         @SuppressLint("MissingPermission")
         override fun onMapReady(googleMap: GoogleMap) {
-            handlerP = HandlerP(this)
+            handlerP = HandlerP(this,context!!)
             handlerP.getDirection(this.job)
             mMap = googleMap
             mMap.isMyLocationEnabled = true
