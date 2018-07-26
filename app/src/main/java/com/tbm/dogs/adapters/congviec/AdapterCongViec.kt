@@ -16,7 +16,7 @@ import com.tbm.dogs.activities.congviec.danglam.HandlerP
 import com.tbm.dogs.model.obj.Job
 import java.util.*
 
-class AdapterCongViec(internal var context: Context, internal var headerGroup: List<String>, internal var child: HashMap<String, List<Job>>,var mode:Int,var handlerP: HandlerP? = null) : BaseExpandableListAdapter() {
+class AdapterCongViec(internal var context: Context, private var headerGroup: List<String>, private var child: HashMap<String, List<Job>>, private var mode:Int, private var handlerP: HandlerP? = null) : BaseExpandableListAdapter() {
 
     var mchild: HashMap<String, List<Job>> = child
 
@@ -33,7 +33,7 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
     }
 
     override fun getChild(i: Int, i1: Int): Any {
-        return mchild[headerGroup[i]]!!.get(i1)
+        return mchild[headerGroup[i]]!![i1]
     }
 
     override fun getGroupId(i: Int): Long {
@@ -106,15 +106,10 @@ class AdapterCongViec(internal var context: Context, internal var headerGroup: L
             tItem.text = job.description
             tTime.text = job.create_time
         }
-
         return view
     }
 
     override fun isChildSelectable(i: Int, i1: Int): Boolean {
         return true
-    }
-
-    companion object {
-        private val TAG = "CustomAdapter"
     }
 }

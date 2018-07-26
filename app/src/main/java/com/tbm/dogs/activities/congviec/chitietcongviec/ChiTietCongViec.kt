@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
@@ -29,7 +30,6 @@ import com.tbm.dogs.R
 import com.tbm.dogs.model.obj.Job
 import kotlinx.android.synthetic.main.activity_chitiet_congviec.*
 import kotlinx.android.synthetic.main.fragment_job_details.view.*
-import java.text.DecimalFormat
 
 
 class ChiTietCongViec : AppCompatActivity() {
@@ -57,7 +57,7 @@ class ChiTietCongViec : AppCompatActivity() {
         tDeadLine.text = "⏰$gio:$phut:$s"
     }
 
-    var mStatusChecker: Runnable = object : Runnable {
+    private var mStatusChecker: Runnable = object : Runnable {
         override fun run() {
             try {
                 updateDeadLine()
@@ -129,11 +129,7 @@ class ChiTietCongViec : AppCompatActivity() {
     inner class SectionsPagerAdapter(fm: FragmentManager, array: ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
 
 
-        lateinit var arrayFragment: ArrayList<Fragment>
-
-        init {
-            arrayFragment = array
-        }
+        private var arrayFragment: ArrayList<Fragment> = array
 
         override fun getItem(position: Int): Fragment {
             return arrayFragment[position]
@@ -144,7 +140,7 @@ class ChiTietCongViec : AppCompatActivity() {
         }
     }
 
-    class DetailFragment() : Fragment() {
+    class DetailFragment : Fragment() {
 
         lateinit var job: Job
 
@@ -158,11 +154,31 @@ class ChiTietCongViec : AppCompatActivity() {
             rootView.tDiemNhan.text = "Điểm Nhận: ${job.pickup.address}"
             rootView.tDiemGiao.text = "Điểm Giao: ${job.dropoff.address}"
             rootView.tKhoangCach.text = "Khoảng Cách: ${job.distance}Km"
-            rootView.tSDTA.text = "Số Điện Thoại Gửi: ${job.pickup.mobile}"
-            rootView.tSDTB.text = "Số Điện Thoại Nhận: ${job.phone_number}"
+            rootView.tSDTA.text = "SĐT Gửi: ${job.pickup.mobile}"
+            rootView.bCallA.setOnClickListener {
+                container?.context?.startActivity(Intent(Intent.ACTION_CALL).apply {
+                    data = Uri.parse("tel:${job.pickup.mobile}")
+                })
+            }
+            if(job.status == "5"){
+                rootView.tSDTB.text = "SĐT Nhận: ${job.phone_number}"
+                rootView.bCallB.setOnClickListener {
+                    container?.context?.startActivity(Intent(Intent.ACTION_CALL).apply {
+                        data = Uri.parse("tel:${job.phone_number}")
+                    })
+                }
+            }else{
+                rootView.tSDTB.text = "SĐT Nhận: hiển thị sau khi đã checkin nhận"
+//                rootView.bCallB.setOnClickListener {
+//                    container?.context?.startActivity(Intent(Intent.ACTION_CALL).apply {
+//                        data = Uri.parse("tel:${job.phone_number}")
+//                    })
+//                }
+            }
+
             rootView.tTenHang.text = "Tên Hàng: ${job.description}"
             rootView.tKhoiLuong.text = "Khối Lượng Hàng: ${job.weight}Kg"
-            val df2 = DecimalFormat("#,###,###,###")
+//            val df2 = DecimalFormat("#,###,###,###")
             rootView.tThuHo.text = "Tiền Thu Hộ: ${job.money_first}đ"//df2.format(job.money_first.toDouble())
             rootView.tPhi.text = "Tiền Phí: ${job.fee}đ"//df2.format(job.fee.replace(".","").toDouble())}"
             rootView.tTongTien.text = "Tổng Tiền: ${job.total}đ"//df2.format((job.fee.replace(".","").toInt()+job.money_first.toInt()).toDouble())}"
@@ -183,9 +199,9 @@ class ChiTietCongViec : AppCompatActivity() {
 
     class MapFragment : Fragment(), OnMapReadyCallback, Results {
 
-        lateinit var handlerP: HandlerP
+        private lateinit var handlerP: HandlerP
         lateinit var job: Job
-        lateinit var mMap: GoogleMap
+        private lateinit var mMap: GoogleMap
         private var originMarkers = ArrayList<Marker>()
         private var destinationMarkers = ArrayList<Marker>()
         private var polylinePaths = ArrayList<Polyline>()
@@ -224,7 +240,7 @@ class ChiTietCongViec : AppCompatActivity() {
             this.job = arguments?.getSerializable("job") as Job
             val rootView = inflater.inflate(R.layout.fragment_map_details, container, false)
             try {
-                val mapFragment = childFragmentManager!!.findFragmentById(R.id.mapDetail) as SupportMapFragment?
+                val mapFragment = childFragmentManager.findFragmentById(R.id.mapDetail) as SupportMapFragment?
                 mapFragment!!.getMapAsync(this)
             } catch (e: Exception) {
                 Log.e("exception:", e.toString())

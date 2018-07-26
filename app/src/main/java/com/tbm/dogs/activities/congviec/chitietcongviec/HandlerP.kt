@@ -1,96 +1,34 @@
 package com.tbm.dogs.activities.congviec.chitietcongviec
 
 import android.content.Context
-import android.net.Uri
-import android.os.AsyncTask
 import android.util.Log
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.Volley
 import com.google.android.gms.maps.model.LatLng
 import com.tbm.dogs.Helper.Var
+import com.tbm.dogs.Helper.VolleyHelper
 import com.tbm.dogs.model.obj.Job
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.json.JSONObject
-import java.io.IOException
-import java.net.MalformedURLException
-import java.net.URL
 
 
-class HandlerP(var results: Results,val context: Context) {
-    var request:RequestQueue
-
-    init {
-        request = Volley.newRequestQueue(context)
-    }
-
-
+class HandlerP(var results: Results, val context: Context) {
+    private val volley = VolleyHelper(context)
 
     fun getDirection(job: Job) {
-        getJsonDirection().execute(Var.MAP_DIRECTION_URL,"${job.pickup.latitude},${job.pickup.longitude}","${job.dropoff.latitude},${job.dropoff.longitude}",Var.MAP_DIRECTION_KEY)
+        volley.requestAPI(Var.MAP_DIRECTION_URL,
+                HashMap<String, String>(),
+                HashMap<String, String>().apply {
+                    put("origin", "${job.pickup.latitude},${job.pickup.longitude}")
+                    put("destination", "${job.dropoff.latitude},${job.dropoff.longitude}")
+                    put("key", Var.MAP_DIRECTION_KEY)
+                },
+                { response -> parseJSon(response) },
+                { error -> Log.e("getdirection:", error) }
+        )
     }
 
-//    fun getJsonDirection(url:String,latlngA:String,latlngB:String,directionKey:String){
-//        val stringRequest = object: StringRequest(Request.Method.GET,url,
-//                Response.Listener { response ->  parseJSon(response)},
-//                Response.ErrorListener { error ->  Log.e("getJsondirection",error.toString())}
-//        ){
-//            override fun getParams(): MutableMap<String, String> {
-//                //create map with key and value of parameters
-//                val param = HashMap<String,String>()
-//                param.put("origin",latlngA)
-//                param.put("destination",latlngB)
-//                param.put("key",directionKey)
-//                return param
-//            }
-//        }
-//        request.add(stringRequest)
-//    }
-
-
-    inner class getJsonDirection : AsyncTask<String, Void, String>(){
-        internal var client = OkHttpClient()
-        override fun doInBackground(vararg strings: String): String? {
-            val uri = Uri.parse(strings[0])
-                    .buildUpon()
-                    .appendQueryParameter("origin", strings[1])
-                    .appendQueryParameter("destination", strings[2])
-                    .appendQueryParameter("key",strings[3])
-                    .build()
-            Log.e("uridirection", uri.toString())
-            var url: URL? = null
-            try {
-                url = URL(uri.toString())
-            } catch (e: MalformedURLException) {
-                e.printStackTrace()
-            }
-
-            val builder = Request.Builder()
-            builder.url(url!!)
-            //builder.addHeader(Var.HEADER, Var.tokenOther)
-            val request = builder.build()
-            try {
-                val response = client.newCall(request).execute()
-                return response.body()!!.string()
-            } catch (e: IOException) {
-                Log.e("getdirection:", e.toString())
-//                results.showError()
-            }
-
-            return null
-        }
-
-        override fun onPostExecute(s: String) {
-            super.onPostExecute(s)
-            parseJSon(s)
-        }
-
-    }
-
-    fun parseJSon(data: String?) {
+    private fun parseJSon(data: String?) {
         if (data == null)
             return
-        Log.e("direction:",data)
+        Log.e("direction:", data)
 
         val routes = ArrayList<Route>()
         val jsonData = JSONObject(data)
@@ -156,6 +94,4 @@ class HandlerP(var results: Results,val context: Context) {
 
         return decoded
     }
-
-
 }

@@ -196,7 +196,7 @@
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="@dimen/_32sdp"
                 android:layout_marginRight="@dimen/_32sdp"
-                android:layout_marginBottom="@dimen/_32sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
                 />
         </RelativeLayout>
     </ScrollView>

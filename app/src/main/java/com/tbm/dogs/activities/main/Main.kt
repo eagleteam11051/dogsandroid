@@ -2,6 +2,7 @@ package com.tbm.dogs.activities.main
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -32,21 +33,25 @@ import kotlinx.android.synthetic.main.main.*
 class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun showErrorJobs() {
         tNumberTimViec.text = "0"
+        Var.jobs?.clear()
         Log.e("findJobSize","0")
     }
 
     override fun showErrorJobsWaiting() {
         tNumberChoDuyet.text = "0"
+        Var.jobsWaiting?.clear()
         Log.e("waitingsize","0")
     }
 
     override fun showErrorJobsWorking() {
         tNumberDangLam.text = "0"
+        Var.jobsWorking?.clear()
         Log.e("jobworkingsize","0")
     }
 
     override fun showErrorJobsDone() {
         tNumberDaLam.text = "0"
+        Var.jobsDone?.clear()
         Log.e("jobdonesize","0")
     }
 
@@ -54,15 +59,21 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     private lateinit var shared: Shared
     private lateinit var handlerP: HandlerP
     private var mHandler: Handler? = null
-    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    lateinit var locationRequest:LocationRequest
-    lateinit var locationCallback: LocationCallback
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var locationRequest:LocationRequest
+    private lateinit var locationCallback: LocationCallback
     var lat = ""
     var lng = ""
     var update = true
+    private lateinit var progressDialog:ProgressDialog
 
-    internal fun init() {
+    private fun init() {
         supportActionBar?.title = "ShipX.vn"
+        progressDialog = ProgressDialog(this).apply {
+            setMessage("Vui lòng chờ !")
+            setTitle("Đang cập nhật dữ liệu...")
+            setCancelable(false)
+        }
         initShiper()
         initData()
         layout_viec_dang_lam.setOnClickListener(this)
@@ -84,7 +95,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         handlerP = HandlerP(this,this)
     }
 
-    internal fun initShiper() {
+    private fun initShiper() {
         if(Var.shiper == null){
             gson = Gson()
             shiper = gson.fromJson(intent.getStringExtra("shiper"), Shiper::class.java)
@@ -141,7 +152,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
 
     override fun onStart() {
         super.onStart()
-        Log.e("onStart","run")
+        Log.e("onStart","started repeat task reload job")
         initNumberJob()
         //loadJobs()
         if(mHandler == null){
@@ -150,11 +161,11 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         startRepeatingTask()
     }
 
-    fun startRepeatingTask() {
+    private fun startRepeatingTask() {
         mStatusChecker.run()
     }
 
-    var mStatusChecker: Runnable = object : Runnable {
+    private var mStatusChecker: Runnable = object : Runnable {
         override fun run() {
             try {
                 update = true
@@ -173,11 +184,13 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
 
-    fun stopRepeatingTask() {
+    private fun stopRepeatingTask() {
         mHandler?.removeCallbacks(mStatusChecker)
+        Log.e("destroy:","stoped repeat task reload job")
     }
 
     private fun loadJobs(){
+        progressDialog.show()
         handlerP.getJobs()
         handlerP.getJobsWaiting()
         handlerP.getJobsWorking()
@@ -254,6 +267,8 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     override fun returnJobs(jobs: ArrayList<Job>) {
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
         Var.jobs = jobs
         tNumberTimViec.text = jobs.size.toString()
         Log.e("findJobSize",jobs.size.toString())
@@ -294,7 +309,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     @SuppressLint("MissingPermission")
-    public fun requestLocationUpdate(){
+    private fun requestLocationUpdate(){
         fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback, Looper.myLooper())
     }
 }

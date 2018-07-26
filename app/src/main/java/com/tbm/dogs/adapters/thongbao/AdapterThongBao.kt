@@ -38,11 +38,7 @@ class AdapterThongBao(var arrayThongBao:ArrayList<ThongBaoObj>,var context : Con
             }
         }
 
-        var tNoiDung:TextView
-        var tThoiGian:TextView
-        init {
-            tNoiDung = itemView.findViewById(R.id.tNoiDung)
-            tThoiGian = itemView.findViewById(R.id.tThoiGian)
-        }
+        var tNoiDung:TextView = itemView.findViewById(R.id.tNoiDung)
+        var tThoiGian:TextView = itemView.findViewById(R.id.tThoiGian)
     }
 }

@@ -106,20 +106,20 @@ class ViecDangLam : AppCompatActivity(),Results {
 
     }
 
-    lateinit var expandableListView: ExpandableListView
+    private lateinit var expandableListView: ExpandableListView
     lateinit var data: HashMap<String, List<Job>>
     lateinit var handlerP:HandlerP
     var lat = ""
     var lng = ""
-    lateinit var locationRequest:LocationRequest
+    private lateinit var locationRequest:LocationRequest
     lateinit var locationCallback: LocationCallback
-    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var job: Job? = null
     var mode:Int = 0
-    lateinit var progressDialog: ProgressDialog
-    val listGiaoHang = ArrayList<Job>()
-    val listHeader = ArrayList<String>()
-    lateinit var adapter:AdapterCongViec
+    private lateinit var progressDialog: ProgressDialog
+    private val listGiaoHang = ArrayList<Job>()
+    private val listHeader = ArrayList<String>()
+    private lateinit var adapter:AdapterCongViec
     var update = true
 
 
@@ -148,7 +148,7 @@ class ViecDangLam : AppCompatActivity(),Results {
 
 
     @SuppressLint("MissingPermission")
-    public fun requestLocationUpdate(){
+    private fun requestLocationUpdate(){
         fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback, Looper.myLooper())
     }
 

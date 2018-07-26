@@ -2,57 +2,49 @@ package com.tbm.dogs.activities.congviec.danglam
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.net.Uri
-import android.os.AsyncTask
 import android.util.Log
 import com.google.gson.Gson
 import com.tbm.dogs.Helper.Locations
 import com.tbm.dogs.Helper.Var
+import com.tbm.dogs.Helper.VolleyHelper
 import com.tbm.dogs.model.obj.Job
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.json.JSONArray
 import org.json.JSONObject
-import java.io.IOException
-import java.net.MalformedURLException
-import java.net.URL
 import java.util.*
 
 
-class HandlerP(var results: Results,var context: Context) {
+class HandlerP(var results: Results, var context: Context) {
 
-    var mode = 0
-    lateinit var job:Job
+    private var mode = 0
+    lateinit var job: Job
+    private val volley = VolleyHelper(context)
 
     @SuppressLint("MissingPermission")
     fun checkinNhanHang(job: Job) {
-        if(!results.hasPermis()){
+        if (!results.hasPermis()) {
             results.requestPermis()
-        }else{
+        } else {
             //TODO kiem tra thoi gian shiper chon va thoi gian con lai cua don hang
-            if(job.create_time_int.toInt() - (System.currentTimeMillis()/1000) <= 0){
+            if (job.create_time_int.toInt() - (System.currentTimeMillis() / 1000) <= 0) {
                 results.showDeadLine()
-            }else{
-                if(Locations.isLocationEnabled(context)){
-                    results.requestUpdate(job,1)
+            } else {
+                if (Locations.isLocationEnabled(context)) {
+                    results.requestUpdate(job, 1)
                     results.showDialog()
                     results.update(true)
-                }else{
+                } else {
                     results.showEnableLocation()
                 }
             }
-
-
         }
-
     }
 
     fun checkinGiaoHang(job: Job) {
-        if(Locations.isLocationEnabled(context)){
-            results.requestUpdate(job,2)
+        if (Locations.isLocationEnabled(context)) {
+            results.requestUpdate(job, 2)
             results.showDialog()
             results.update(true)
-        }else{
+        } else {
             results.showEnableLocation()
         }
     }
@@ -60,120 +52,62 @@ class HandlerP(var results: Results,var context: Context) {
     fun checkin(job: Job, mode: Int, lat: String, lng: String) {
         this.mode = mode
         this.job = job
-        if(mode == 1){
-            Checkin().execute(Var.API_WORKING,job.order_id, Var.shiper?.hero_id,lat,lng)
-        }else{
-            Checkin().execute(Var.API_SUCCESS,job.order_id,Var.shiper?.hero_id,lat,lng)
+        if (mode == 1) {
+            handlerCheckin(Var.API_WORKING, job.order_id, Var.shiper?.hero_id!!, lat, lng)
+        } else {
+            handlerCheckin(Var.API_SUCCESS, job.order_id, Var.shiper?.hero_id!!, lat, lng)
         }
     }
 
-    fun getJobsWorking(){
+    fun getJobsWorking() {
         //api,hero_id,status,start_date,end_date,start
-        handlerJobsWorking().execute(Var.API_VINTER_GET_WORKING, Var.shiper?.hero_id, "3"/*,Dates().startDate(),Dates().endDate(),"0"*/)
+        handlerJobsWorking(Var.API_VINTER_GET_WORKING, Var.shiper?.hero_id!!, "3"/*,Dates().startDate(),Dates().endDate(),"0"*/)
     }
 
-    inner class Checkin: AsyncTask<String, Void, String>(){
-        internal var client = OkHttpClient()
-        override fun doInBackground(vararg strings: String): String? {
-            val uri = Uri.parse(strings[0])
-                    .buildUpon()
-                    .appendQueryParameter("order_id", strings[1])
-                    .appendQueryParameter("hero_id", strings[2])
-                    .appendQueryParameter("lat", strings[3])
-                    .appendQueryParameter("long",strings[4])
-                    .build()
-            Log.e("checkin", uri.toString())
-            var url: URL? = null
-            try {
-                url = URL(uri.toString())
-            } catch (e: MalformedURLException) {
-                e.printStackTrace()
-            }
-
-            val builder = Request.Builder()
-            builder.url(url!!)
-            builder.addHeader(Var.HEADER, Var.tokenOther)
-            val request = builder.build()
-            try {
-                val response = client.newCall(request).execute()
-                return response.body()!!.string()
-            } catch (e: IOException) {
-                Log.e("checkin:", e.toString())
-                results.showError("Có lỗi xảy ra!")
-            }
-
-            return null
-        }
-
-        override fun onPostExecute(s: String) {
-            super.onPostExecute(s)
-            results.dismisDialog()
-            handlerResults(s)
-        }
-
-        private fun handlerResults(s: String) {
-            Log.e("checkin",s)
+    private fun handlerCheckin(url:String,order_id:String,hero_id:String,lat:String,lng:String){
+        fun handlerResults(s: String) {
+            Log.e("checkin", s)
             val jsonObject = JSONObject(s)
             val status = jsonObject["status"]
             val response = jsonObject["response"]
-            if(status == "success"){
-                results.showSuccess(this@HandlerP.job,mode)
-            }else{
+            if (status == "success") {
+                results.showSuccess(this@HandlerP.job, mode)
+            } else {
                 results.showError(response.toString())
             }
         }
+        volley.requestAPI(
+                url,
+                HashMap<String,String>().apply {
+                    put(Var.HEADER,Var.tokenOther)
+                },
+                HashMap<String,String>().apply {
+                    put("order_id",order_id)
+                    put("hero_id",hero_id)
+                    put("lat",lat)
+                    put("long",lng)
+                },
+                {response ->
+                    results.dismisDialog()
+                    handlerResults(response)
+                },
+                {error ->
+                    Log.e("checkin:", error)
+                    results.showError("Có lỗi xảy ra!")
+                }
+        )
     }
-    inner class handlerJobsWorking: AsyncTask<String,Void,String>(){
-        internal var client = OkHttpClient()
-        override fun doInBackground(vararg strings: String): String? {
-            val uri = Uri.parse(strings[0])
-                    .buildUpon()
-                    .appendQueryParameter("hero_id", strings[1])
-                    .appendQueryParameter("service", strings[2])
-//                    .appendQueryParameter("status", strings[2])
-//                    .appendQueryParameter("start_date",strings[3])
-//                    .appendQueryParameter("end_date",strings[4])
-//                    .appendQueryParameter("start",strings[5])
-                    .build()
-            Log.e("jobWorking", uri.toString())
-            var url: URL? = null
-            try {
-                url = URL(uri.toString())
-            } catch (e: MalformedURLException) {
-                e.printStackTrace()
-            }
 
-            val builder = Request.Builder()
-            builder.url(url!!)
-            builder.addHeader(Var.HEADER, Var.tokenOther)
-            val request = builder.build()
-            try {
-                val response = client.newCall(request).execute()
-                return response.body()!!.string()
-            } catch (e: IOException) {
-                Log.e("jobWorking:", e.toString())
-                results.showError("Có lỗi xảy ra!")
-            }
-
-            return null
-        }
-
-        override fun onPostExecute(s: String) {
-            super.onPostExecute(s)
-            handlerResults(s)
-        }
-
-        private fun handlerResults(s: String) {
-            Log.e("jobWorking",s)
+    private fun handlerJobsWorking(url:String,hero_id: String,service:String){
+        fun handlerResults(s: String) {
+            Log.e("jobWorking", s)
             val jobs = ArrayList<Job>()
-            //parse job
-            //TODO
             val jsonObject = JSONObject(s)
             val status = jsonObject["status"]
-            if(status == "success"){
+            if (status == "success") {
                 val response = jsonObject["response"] as JSONArray
-                if(response.length()>0){
-                    for (i in 0..response.length()-1){
+                if (response.length() > 0) {
+                    for (i in 0 until response.length()) {
                         val item = response.getJSONObject(i).toString()
 
                         val job: Job = Gson().fromJson(item, Job::class.java)
@@ -182,9 +116,24 @@ class HandlerP(var results: Results,var context: Context) {
                     }
                     results.returnJobsWorking(jobs)
                 }
-            }else{
+            } else {
                 results.showErrorJobsWorking()
             }
         }
+        volley.requestAPI(
+                url,
+                HashMap<String,String>().apply {
+                    put(Var.HEADER,Var.tokenOther)
+                },
+                HashMap<String,String>().apply {
+                    put("hero_id",hero_id)
+                    put("service",service)
+                },
+                {response -> handlerResults(response) },
+                {error ->
+                    Log.e("jobWorking:", error)
+                    results.showError("Có lỗi xảy ra!")
+                }
+        )
     }
 }

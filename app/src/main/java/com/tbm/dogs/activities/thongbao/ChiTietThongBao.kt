@@ -11,7 +11,7 @@ class ChiTietThongBao : AppCompatActivity() {
 
     lateinit var tTitle: TextView
     lateinit var tBody: TextView
-    lateinit var thongBaoObj: ThongBaoObj
+    private lateinit var thongBaoObj: ThongBaoObj
 
     private fun init() {
         tTitle = findViewById(R.id.tTitle)

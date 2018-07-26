@@ -12,9 +12,9 @@ import com.tbm.dogs.activities.congviec.dalam.chitiet.ChiTietGiaoHangNhanh
 import com.tbm.dogs.adapters.congviec.dalam.AdapterGiaoHangNhanh
 
 class ViecDaLam : AppCompatActivity() {
-    var bGiaoHangNhanh:CardView? = null
-    var lGiaoHangNhanh:RecyclerView? = null
-    var adapterGiaoHangNhanh:AdapterGiaoHangNhanh? = null
+    var bGiaoHangNhanh: CardView? = null
+    var lGiaoHangNhanh: RecyclerView? = null
+    private var adapterGiaoHangNhanh: AdapterGiaoHangNhanh? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,29 +27,30 @@ class ViecDaLam : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun initToolBar(){
+    private fun initToolBar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Đơn Hàng Đã Làm"
     }
 
-    private fun initView(){
+    private fun initView() {
         bGiaoHangNhanh = findViewById(R.id.bGiaoHangNhanh)
         lGiaoHangNhanh = findViewById(R.id.lGiaoHangNhanh)
         adapterGiaoHangNhanh = AdapterGiaoHangNhanh()
     }
 
-    private fun configList(){
+    private fun configList() {
         lGiaoHangNhanh?.setHasFixedSize(true)
-        lGiaoHangNhanh?.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        lGiaoHangNhanh?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         lGiaoHangNhanh?.adapter = adapterGiaoHangNhanh
     }
 
-    private fun initAction(){
+    private fun initAction() {
         //init action: onclick....
         bGiaoHangNhanh?.setOnClickListener {
-            startActivity(Intent(this@ViecDaLam,ChiTietGiaoHangNhanh::class.java))
+            startActivity(Intent(this@ViecDaLam, ChiTietGiaoHangNhanh::class.java))
         }
     }
+
     private fun init() {
         initToolBar()
         initView()

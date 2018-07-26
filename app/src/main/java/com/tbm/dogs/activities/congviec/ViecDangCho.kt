@@ -12,7 +12,7 @@ import com.tbm.dogs.model.obj.Job
 import java.util.*
 
 class ViecDangCho : AppCompatActivity() {
-    lateinit var expandableListView: ExpandableListView
+    private lateinit var expandableListView: ExpandableListView
     lateinit var data: HashMap<String, List<Job>>
 
     private fun init() {

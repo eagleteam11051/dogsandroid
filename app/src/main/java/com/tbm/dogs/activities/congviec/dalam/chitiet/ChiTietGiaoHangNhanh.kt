@@ -9,8 +9,8 @@ import com.tbm.dogs.R
 import com.tbm.dogs.adapters.congviec.dalam.AdapterGiaoHangNhanh
 
 class ChiTietGiaoHangNhanh : AppCompatActivity() {
-    var lGiaoHangNhanh:RecyclerView? = null
-    var adapterGiaoHangNhanh:AdapterGiaoHangNhanh? = null
+    var lGiaoHangNhanh: RecyclerView? = null
+    private var adapterGiaoHangNhanh: AdapterGiaoHangNhanh? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class ChiTietGiaoHangNhanh : AppCompatActivity() {
 
     private fun configList() {
         lGiaoHangNhanh?.setHasFixedSize(true)
-        lGiaoHangNhanh?.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        lGiaoHangNhanh?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         lGiaoHangNhanh?.adapter = adapterGiaoHangNhanh
     }
 

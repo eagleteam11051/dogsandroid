@@ -1,26 +1,37 @@
 package com.tbm.dogs.Services
 
 import android.app.ActivityManager
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.tbm.dogs.Helper.Shared
+import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.congviec.dangco.ViecDangCo
 import com.tbm.dogs.activities.main.Main
 import com.tbm.dogs.activities.thongbao.ChiTietThongBao
-import android.app.NotificationChannel
-import android.os.Build
 
 
 
 
 
 class MyFirebaseMessaging : FirebaseMessagingService() {
+
+    override fun onNewToken(p0: String?) {
+        super.onNewToken(p0)
+        val shared = Shared(this)
+        shared.saveTokenFCM(p0 ?: "")
+        Var.currentTokenFCM = shared.tokenFCM
+        Log.e("onNewToken:", Var.currentTokenFCM)
+    }
+
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         super.onMessageReceived(remoteMessage)
         createNotificationChannel()

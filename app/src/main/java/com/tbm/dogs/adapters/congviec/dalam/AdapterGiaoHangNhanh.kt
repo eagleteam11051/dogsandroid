@@ -30,19 +30,11 @@ class AdapterGiaoHangNhanh: RecyclerView.Adapter<AdapterGiaoHangNhanh.ViewHolder
 
 
     class ViewHolderDaLam(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tDescription:TextView
-        var tTime:TextView
-        var tKhoiLuong:TextView
-        var tKhoangCach:TextView
-        var tGiaTri:TextView
-        var tTienNhan:TextView
-        init{
-            tDescription = itemView.findViewById(R.id.tDescription)
-            tTime = itemView.findViewById(R.id.tTime)
-            tKhoiLuong = itemView.findViewById(R.id.tKhoiLuong)
-            tKhoangCach = itemView.findViewById(R.id.tKhoangCach)
-            tGiaTri = itemView.findViewById(R.id.tGiaTri)
-            tTienNhan = itemView.findViewById(R.id.tTienNhan)
-        }
+        var tDescription:TextView = itemView.findViewById(R.id.tDescription)
+        var tTime:TextView = itemView.findViewById(R.id.tTime)
+        var tKhoiLuong:TextView = itemView.findViewById(R.id.tKhoiLuong)
+        var tKhoangCach:TextView = itemView.findViewById(R.id.tKhoangCach)
+        var tGiaTri:TextView = itemView.findViewById(R.id.tGiaTri)
+        var tTienNhan:TextView = itemView.findViewById(R.id.tTienNhan)
     }
 }

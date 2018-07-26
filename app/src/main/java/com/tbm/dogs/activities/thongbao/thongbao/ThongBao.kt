@@ -12,26 +12,22 @@ import com.tbm.dogs.R
 import com.tbm.dogs.adapters.thongbao.AdapterThongBao
 import com.tbm.dogs.model.obj.ThongBaoObj
 
-class ThongBao : AppCompatActivity(),Results {
+class ThongBao : AppCompatActivity(), Results {
     override fun dismisProgress() {
         progressDialog.dismiss()
     }
 
-
     override fun showError() {
-        Toast.makeText(this,"Có lỗi xảy ra!",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Có lỗi xảy ra!", Toast.LENGTH_SHORT).show()
     }
 
     override fun returnThongBaos(thongBaos: ArrayList<ThongBaoObj>) {
         viewAdapter.arrayThongBao.addAll(thongBaos)
         viewAdapter.notifyDataSetChanged()
-        if(thongBaos.size<10){
+        if (thongBaos.size < 10) {
             isLoadMore = false
         }
     }
-
-
-
 
     /////////////////////
 
@@ -41,7 +37,7 @@ class ThongBao : AppCompatActivity(),Results {
     private lateinit var handlerP: HandlerP
     private var indexStatus = 0
     private var isLoadMore = true
-    private lateinit var progressDialog:ProgressDialog
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +51,7 @@ class ThongBao : AppCompatActivity(),Results {
 
         viewManager = LinearLayoutManager(this)
         val arrayThongBao = ArrayList<ThongBaoObj>()
-        viewAdapter = AdapterThongBao(arrayThongBao,this)
+        viewAdapter = AdapterThongBao(arrayThongBao, this)
 
         recyclerView = findViewById<RecyclerView>(R.id.rListThongBao).apply {
             // use this setting to improve performance if you know that changes
@@ -72,8 +68,8 @@ class ThongBao : AppCompatActivity(),Results {
                     super.onScrollStateChanged(recyclerView, newState)
 
                     if (!recyclerView.canScrollVertically(1)) {
-                        Log.e("last","...")
-                        if(isLoadMore){
+                        Log.e("last", "...")
+                        if (isLoadMore) {
                             indexStatus += 10
                             progressDialog.show()
                             handlerP.getThongBao(indexStatus)
@@ -83,7 +79,7 @@ class ThongBao : AppCompatActivity(),Results {
             })
 
         }
-        handlerP = HandlerP(this)
+        handlerP = HandlerP(this, this)
         progressDialog.show()
         handlerP.getThongBao(indexStatus)
 

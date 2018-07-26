@@ -24,14 +24,14 @@ class Login : AppCompatActivity(), Results {
     private lateinit var action: Action
     private lateinit var progressDialog: ProgressDialog
 
-    internal fun init() {
+    private fun init() {
         bLogin.setOnClickListener { handlerP.actionLogin(eUserName, ePassWord) }
         tForgot.setOnClickListener { showForGot() }
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Đang xử lý, xin chờ giây lát!")
         progressDialog.setCancelable(false)
         shared = Shared(this)
-        handlerP = HandlerP(this)
+        handlerP = HandlerP(this,this)
         action = Action()
     }
 
