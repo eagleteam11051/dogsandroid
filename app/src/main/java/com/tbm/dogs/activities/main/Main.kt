@@ -35,24 +35,32 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         tNumberTimViec.text = "0"
         Var.jobs?.clear()
         Log.e("findJobSize","0")
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
     }
 
     override fun showErrorJobsWaiting() {
         tNumberChoDuyet.text = "0"
         Var.jobsWaiting?.clear()
         Log.e("waitingsize","0")
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
     }
 
     override fun showErrorJobsWorking() {
         tNumberDangLam.text = "0"
         Var.jobsWorking?.clear()
         Log.e("jobworkingsize","0")
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
     }
 
     override fun showErrorJobsDone() {
         tNumberDaLam.text = "0"
         Var.jobsDone?.clear()
         Log.e("jobdonesize","0")
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
     }
 
     private lateinit var gson: Gson
@@ -68,7 +76,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     private lateinit var progressDialog:ProgressDialog
 
     private fun init() {
-        supportActionBar?.title = "ShipX.vn"
+        supportActionBar?.title = "Dogs"
         progressDialog = ProgressDialog(this).apply {
             setMessage("Vui lòng chờ !")
             setTitle("Đang cập nhật dữ liệu...")
@@ -143,7 +151,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         locationRequest.apply {
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
             interval = 5000
-            fastestInterval = 3000
+            fastestInterval = 1000
             smallestDisplacement = 10f
         }
 
@@ -264,6 +272,8 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
 
     override fun showError() {
         Log.e("error...","hihi")
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
     }
 
     override fun returnJobs(jobs: ArrayList<Job>) {
@@ -274,17 +284,23 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         Log.e("findJobSize",jobs.size.toString())
     }
     override fun returnJobsWaiting(jobs: ArrayList<Job>) {
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
         Var.jobsWaiting = jobs
         tNumberChoDuyet.text = jobs.size.toString()
         Log.e("jobsWaitingSize:",jobs.size.toString())
     }
     override fun returnJobsWorking(jobs: ArrayList<Job>) {
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
         Var.jobsWorking = jobs
         tNumberDangLam.text = jobs.size.toString()
         Log.e("jobsworkingsize:",jobs.size.toString())
     }
 
     override fun returnJobsDone(jobs: ArrayList<Job>) {
+        //dismis progress when loaded data update
+        progressDialog.dismiss()
         Var.jobsDone = jobs
         tNumberDaLam.text = jobs.size.toString()
         Log.e("jobsdonesie:",jobs.size.toString())

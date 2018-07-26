@@ -130,7 +130,18 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
     }
 
     override fun onMarkerClick(p0: Marker?): Boolean {
-        showInfo(handlerP.getJob(p0?.tag.toString()))
+        val job = handlerP.getJob(p0?.tag.toString())
+        if(job == null){
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Lỗi!")
+            builder.setMessage("Đơn hàng đã được người khác nhận hoặc bị lỗi!")
+            builder.setPositiveButton("OK") { dialogInterface, i ->
+                dialogInterface.cancel()
+            }
+            builder.create().show()
+        }else{
+            showInfo(job)
+        }
         return true
     }
 
@@ -166,6 +177,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         val tDeadLine: TextView = view.findViewById(R.id.tDeadLine)
         val tMota: TextView = view.findViewById(R.id.tMoTa)
         val tGhiChu: TextView = view.findViewById(R.id.tGhiChu)
+        val tMaDon:TextView = view.findViewById(R.id.tMaDon)
 
         //**************
         fun updateDeadLine() {
@@ -178,7 +190,12 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
             } else {
                 tDeadLine.setTextColor(Color.parseColor("#0097a7"))
             }
-            tDeadLine.text = "⏰$gio:$phut:$s"
+            try{
+                tDeadLine.text = "⏰$gio:$phut:$s"
+            }catch (e:Exception){
+                tDeadLine.text = "$gio:$phut:$s"
+            }
+
         }
 
         var mStatusChecker: Runnable = object : Runnable {
@@ -231,6 +248,7 @@ class ViecDangCo : AppCompatActivity(), OnMapReadyCallback, Results, GoogleMap.O
         fun update() {
             tDiemNhan.text = "Điểm Nhận: ${job.pickup.address}"
             tDiemGiao.text = "Điểm Giao: ${job.dropoff.address}"
+            tMaDon.text = "Mã Đơn: ${job.order_code}"
             tKhoangCach.text = "Khoảng Cách: ${job.distance}Km"
             tKhoiLuong.text = "Khối Lượng: ${job.weight}Kg"
             tGiaTri.text = "Giá Trị: ${job.money_first}đ"

@@ -54,7 +54,12 @@ class ChiTietCongViec : AppCompatActivity() {
         } else {
             tDeadLine.setTextColor(Color.WHITE)
         }
-        tDeadLine.text = "⏰$gio:$phut:$s"
+        try{
+            tDeadLine.text = "⏰$gio:$phut:$s"
+        }catch (e:Exception){
+            tDeadLine.text = "$gio:$phut:$s"
+        }
+
     }
 
     private var mStatusChecker: Runnable = object : Runnable {
@@ -153,6 +158,7 @@ class ChiTietCongViec : AppCompatActivity() {
             val rootView = inflater.inflate(R.layout.fragment_job_details, container, false)
             rootView.tDiemNhan.text = "Điểm Nhận: ${job.pickup.address}"
             rootView.tDiemGiao.text = "Điểm Giao: ${job.dropoff.address}"
+            rootView.tMaDon.text = "Mã Đơn: ${job.order_code}"
             rootView.tKhoangCach.text = "Khoảng Cách: ${job.distance}Km"
             rootView.tSDTA.text = "SĐT Gửi: ${job.pickup.mobile}"
             rootView.bCallA.setOnClickListener {
@@ -168,7 +174,7 @@ class ChiTietCongViec : AppCompatActivity() {
                     })
                 }
             }else{
-                rootView.tSDTB.text = "SĐT Nhận: hiển thị sau khi đã checkin nhận"
+                rootView.tSDTB.text = "SĐT Nhận: hiển thị sau khi đã nhận "
 //                rootView.bCallB.setOnClickListener {
 //                    container?.context?.startActivity(Intent(Intent.ACTION_CALL).apply {
 //                        data = Uri.parse("tel:${job.phone_number}")
@@ -177,6 +183,7 @@ class ChiTietCongViec : AppCompatActivity() {
             }
 
             rootView.tTenHang.text = "Tên Hàng: ${job.description}"
+            rootView.tGhiChu.text = "Ghi Chú: ${job.note}"
             rootView.tKhoiLuong.text = "Khối Lượng Hàng: ${job.weight}Kg"
 //            val df2 = DecimalFormat("#,###,###,###")
             rootView.tThuHo.text = "Tiền Thu Hộ: ${job.money_first}đ"//df2.format(job.money_first.toDouble())

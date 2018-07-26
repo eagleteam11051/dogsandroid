@@ -1,6 +1,7 @@
 package com.tbm.dogs.Helper
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -31,6 +32,7 @@ class VolleyHelper(val context: Context) {
         for (param in params){
             url = "${url}${param.key}=${param.value}&"
         }
+        Log.e("URL:",url.substring(0 until url.length-1))
         return url.substring(0 until url.length-1)
     }
 }

@@ -2,13 +2,13 @@ package com.tbm.dogs.adapters.congviec
 
 import android.content.Context
 import android.content.Intent
+import android.support.v7.widget.CardView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.Button
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.tbm.dogs.R
 import com.tbm.dogs.activities.congviec.chitietcongviec.ChiTietCongViec
@@ -98,7 +98,7 @@ class AdapterCongViec(internal var context: Context, private var headerGroup: Li
                 Log.e("row","giao hang")
                 handlerP?.checkinGiaoHang((getChild(i, i1) as Job))
             }
-            val layoutRow = view.findViewById<RelativeLayout>(R.id.layout_row)
+            val layoutRow = view.findViewById<CardView>(R.id.layout_row)
             layoutRow.setOnClickListener {
                 Log.e("layout_row","clicked")
                 context.startActivity(Intent(context, ChiTietCongViec::class.java).putExtra("job",getChild(i, i1) as Job))

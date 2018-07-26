@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimaryDark"
-        android:text="🔔Thông Báo"
+        android:text="Thông Báo"
         android:textStyle="bold"
         android:textSize="@dimen/_24sdp"
         android:gravity="center"/>

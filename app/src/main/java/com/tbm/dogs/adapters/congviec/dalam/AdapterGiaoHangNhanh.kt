@@ -20,6 +20,7 @@ class AdapterGiaoHangNhanh: RecyclerView.Adapter<AdapterGiaoHangNhanh.ViewHolder
 
     override fun onBindViewHolder(p0: ViewHolderDaLam, p1: Int) {
         val job = Var.jobsDone?.get(p1)
+        p0.tMaDon.text = "Mã đơn: ${job?.order_code}"
         p0.tDescription.text = "Mô tả: ${job?.note}"
         p0.tTime.text = "${job?.create_time}"
         p0.tKhoiLuong.text = "Khối lượng: ${job?.weight}Kg"
@@ -30,11 +31,12 @@ class AdapterGiaoHangNhanh: RecyclerView.Adapter<AdapterGiaoHangNhanh.ViewHolder
 
 
     class ViewHolderDaLam(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tDescription:TextView = itemView.findViewById(R.id.tDescription)
-        var tTime:TextView = itemView.findViewById(R.id.tTime)
-        var tKhoiLuong:TextView = itemView.findViewById(R.id.tKhoiLuong)
-        var tKhoangCach:TextView = itemView.findViewById(R.id.tKhoangCach)
-        var tGiaTri:TextView = itemView.findViewById(R.id.tGiaTri)
-        var tTienNhan:TextView = itemView.findViewById(R.id.tTienNhan)
+        val tMaDon:TextView = itemView.findViewById(R.id.tMaDon)
+        val tDescription:TextView = itemView.findViewById(R.id.tDescription)
+        val tTime:TextView = itemView.findViewById(R.id.tTime)
+        val tKhoiLuong:TextView = itemView.findViewById(R.id.tKhoiLuong)
+        val tKhoangCach:TextView = itemView.findViewById(R.id.tKhoangCach)
+        val tGiaTri:TextView = itemView.findViewById(R.id.tGiaTri)
+        val tTienNhan:TextView = itemView.findViewById(R.id.tTienNhan)
     }
 }

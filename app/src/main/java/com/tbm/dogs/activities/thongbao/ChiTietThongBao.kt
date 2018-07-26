@@ -2,6 +2,7 @@ package com.tbm.dogs.activities.thongbao
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import com.tbm.dogs.R
@@ -19,7 +20,12 @@ class ChiTietThongBao : AppCompatActivity() {
     }
 
     private fun initNotification() {
-        tTitle.text = "⏰${thongBaoObj.created_time}"
+        try{
+            tTitle.text = "⏰${thongBaoObj.created_time}"
+        }catch (e:Exception){
+            Log.e("thongbaoTitle:",e.toString())
+            tTitle.text = "${thongBaoObj.created_time}"
+        }
         tBody.text = thongBaoObj.message
     }
 
