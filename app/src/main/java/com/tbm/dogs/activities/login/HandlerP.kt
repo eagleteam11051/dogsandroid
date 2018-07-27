@@ -49,7 +49,11 @@ class HandlerP(internal var results: Results,val context: Context) {
                     put("phone_os",phone_os)
                 },
                 {response -> success(response) },
-                {error -> Log.e("loginError:",error)})
+                {error ->
+                    Log.e("loginError:",error)
+                    results.dismisDialog()
+                    results.showErrorInternet()
+                })
     }
 
     private fun success(s: String?){

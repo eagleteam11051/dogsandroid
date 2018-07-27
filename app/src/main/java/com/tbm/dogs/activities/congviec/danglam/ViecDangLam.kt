@@ -25,6 +25,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ViecDangLam : AppCompatActivity(),Results {
+    override fun showErrorGPS() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Lỗi!")
+        builder.setMessage("Chức năng định vị của bạn hiện không bật hoặc điện thoại của bạn không thể tìm thấy GPS, nếu không khắc phục được sự cố này hãy gọi lên tổng đài để được hỗ trợ?")
+        builder.setPositiveButton("OK") {
+            dialogInterface, i ->
+            dialogInterface.cancel()
+        }
+        builder.create().show()
+    }
+
     override fun showDeadLine() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Bạn không thể nhận đơn hàng này!")
@@ -159,6 +170,8 @@ class ViecDangLam : AppCompatActivity(),Results {
                 for (location in locationResult!!.locations) {
                     lat = location.latitude.toString()
                     lng = location.longitude.toString()
+                    Var.lat = lat
+                    Var.lng = lng
                     Log.e("lat after update",lat)
                     Log.e("lng after update",lng)
                 }
@@ -166,7 +179,6 @@ class ViecDangLam : AppCompatActivity(),Results {
                     handlerP.checkin(this@ViecDangLam.job!!,mode,lat,lng)
                     update = false
                 }
-
                 super.onLocationResult(locationResult)
             }
         }
@@ -179,7 +191,7 @@ class ViecDangLam : AppCompatActivity(),Results {
         locationRequest.apply {
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
             interval = 5000
-            fastestInterval = 3000
+            fastestInterval = 1000
             smallestDisplacement = 10f
         }
 

@@ -17,6 +17,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.android.gms.location.*
 import com.google.gson.Gson
+import com.tbm.dogs.Helper.Action
 import com.tbm.dogs.Helper.Shared
 import com.tbm.dogs.Helper.Var
 import com.tbm.dogs.Helper.Var.shiper
@@ -34,7 +35,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun showErrorJobs() {
         tNumberTimViec.text = "0"
         Var.jobs?.clear()
-        Log.e("findJobSize","0")
+        Log.e("findJobSize", "0")
         //dismis progress when loaded data update
         progressDialog.dismiss()
     }
@@ -42,7 +43,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun showErrorJobsWaiting() {
         tNumberChoDuyet.text = "0"
         Var.jobsWaiting?.clear()
-        Log.e("waitingsize","0")
+        Log.e("waitingsize", "0")
         //dismis progress when loaded data update
         progressDialog.dismiss()
     }
@@ -50,7 +51,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun showErrorJobsWorking() {
         tNumberDangLam.text = "0"
         Var.jobsWorking?.clear()
-        Log.e("jobworkingsize","0")
+        Log.e("jobworkingsize", "0")
         //dismis progress when loaded data update
         progressDialog.dismiss()
     }
@@ -58,7 +59,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun showErrorJobsDone() {
         tNumberDaLam.text = "0"
         Var.jobsDone?.clear()
-        Log.e("jobdonesize","0")
+        Log.e("jobdonesize", "0")
         //dismis progress when loaded data update
         progressDialog.dismiss()
     }
@@ -68,12 +69,13 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     private lateinit var handlerP: HandlerP
     private var mHandler: Handler? = null
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private lateinit var locationRequest:LocationRequest
+    private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
     var lat = ""
     var lng = ""
     var update = true
-    private lateinit var progressDialog:ProgressDialog
+    private lateinit var progressDialog: ProgressDialog
+    private var currentTime:Long = 0
 
     private fun init() {
         supportActionBar?.title = "Dogs"
@@ -100,16 +102,16 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         Glide.with(this).load(shiper!!.image).into(imgAvatar)
         //Picasso.get().load(shiper!!.image).into(imgAvatar)
         shared = Shared(this)
-        handlerP = HandlerP(this,this)
+        handlerP = HandlerP(this, this)
     }
 
     private fun initShiper() {
-        if(Var.shiper == null){
+        if (Var.shiper == null) {
             gson = Gson()
             shiper = gson.fromJson(intent.getStringExtra("shiper"), Shiper::class.java)
             Var.shiper = shiper
             Var.tokenOther = shiper!!.token
-        }else{
+        } else {
             shiper = Var.shiper!!
         }
     }
@@ -132,18 +134,19 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
                 for (location in locationResult!!.locations) {
                     lat = location.latitude.toString()
                     lng = location.longitude.toString()
-                    Log.e("lat after update",lat)
-                    Log.e("lng after update",lng)
+                    Var.lat = lat
+                    Var.lng = lng
+                    Log.e("lat after update", lat)
+                    Log.e("lng after update", lng)
                 }
-                if(update){
-                    handlerP.sendLocation(lat,lng)
+                if (update) {
+                    handlerP.sendLocation(lat, lng)
                     update = false
                 }
                 super.onLocationResult(locationResult)
             }
         }
     }
-
 
 
     private fun buildLocationRequest() {
@@ -160,10 +163,10 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
 
     override fun onStart() {
         super.onStart()
-        Log.e("onStart","started repeat task reload job")
+        Log.e("onStart", "started repeat task reload job")
         initNumberJob()
         //loadJobs()
-        if(mHandler == null){
+        if (mHandler == null) {
             mHandler = Handler()
         }
         startRepeatingTask()
@@ -176,10 +179,13 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     private var mStatusChecker: Runnable = object : Runnable {
         override fun run() {
             try {
-                update = true
-                loadJobs() //this function can change value of mInterval.
+                if(System.currentTimeMillis() - currentTime > 60000){
+                    update = true
+                    loadJobs() //this function can change value of mInterval.
+                    currentTime = System.currentTimeMillis()
+                }
             } finally {
-                mHandler?.postDelayed(this, /*3000*/Var.delayReloadJob)
+                mHandler?.postDelayed(this, 10000/*Var.delayReloadJob*/)
             }
         }
     }
@@ -194,25 +200,36 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
 
     private fun stopRepeatingTask() {
         mHandler?.removeCallbacks(mStatusChecker)
-        Log.e("destroy:","stoped repeat task reload job")
+        Log.e("destroy:", "stoped repeat task reload job")
     }
 
-    private fun loadJobs(){
-        progressDialog.show()
-        handlerP.getJobs()
-        handlerP.getJobsWaiting()
-        handlerP.getJobsWorking()
-        handlerP.getJobsDone()
-        handlerP.postMyLocation()
+    private fun loadJobs() {
+        if (Action().isNetworkConnected(this)) {
+            progressDialog.show()
+            handlerP.getJobs()
+            handlerP.getJobsWaiting()
+            handlerP.getJobsWorking()
+            handlerP.getJobsDone()
+            handlerP.postMyLocation()
+        } else {
+            showConnectError()
+        }
     }
 
+    private fun showConnectError() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Lỗi!")
+        builder.setMessage("Vui lòng kiểm tra kết nối mạng của bạn và thử lại!")
+        builder.setPositiveButton("OK") { dialogInterface, i -> dialogInterface.cancel() }
+        builder.create().show()
+    }
 
 
     private fun initNumberJob() {
-        tNumberTimViec.text = if(Var.jobs != null) Var.jobs?.size.toString() else "0"
-        tNumberChoDuyet.text = if(Var.jobsWaiting != null) Var.jobsWaiting?.size.toString() else "0"
-        tNumberDangLam.text = if(Var.jobsWorking != null) Var.jobsWorking?.size.toString() else "0"
-        tNumberDaLam.text = if(Var.jobsDone != null) Var.jobsDone?.size.toString() else "0"
+        tNumberTimViec.text = if (Var.jobs != null) Var.jobs?.size.toString() else "0"
+        tNumberChoDuyet.text = if (Var.jobsWaiting != null) Var.jobsWaiting?.size.toString() else "0"
+        tNumberDangLam.text = if (Var.jobsWorking != null) Var.jobsWorking?.size.toString() else "0"
+        tNumberDaLam.text = if (Var.jobsDone != null) Var.jobsDone?.size.toString() else "0"
     }
 
     override fun onBackPressed() {
@@ -222,7 +239,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     override fun onNewIntent(intent: Intent) {
         initNumberJob()
         //loadJobs()
-        if(mHandler == null){
+        if (mHandler == null) {
             mHandler = Handler()
         }
         startRepeatingTask()
@@ -230,36 +247,46 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main,menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.mThongBao ->
-                startActivity(Intent(this, ThongBao::class.java))
-            R.id.mReload ->
-                loadJobs()
+        if(Action().isNetworkConnected(this)){
+            when (item.itemId) {
+                R.id.mThongBao ->
+                    startActivity(Intent(this, ThongBao::class.java))
+                R.id.mReload ->
+                    loadJobs()
+            }
+        }else{
+            showConnectError()
         }
+
 
         return super.onOptionsItemSelected(item)
     }
 
     override fun onClick(view: View) {
-        when (view.id) {
-            R.id.layout_viec_da_lam -> {
-                startActivity(Intent(this, ViecDaLam::class.java))
+        if(Action().isNetworkConnected(this)){
+            when (view.id) {
+                R.id.layout_viec_da_lam -> {
+                    startActivity(Intent(this, ViecDaLam::class.java))
+                }
+                R.id.layout_viec_dang_cho -> {
+                    startActivity(Intent(this, ViecDangCho::class.java))
+                }
+                R.id.layout_viec_dang_co -> {
+                    startActivity(Intent(this, ViecDangCo::class.java))
+                }
+                R.id.layout_viec_dang_lam -> {
+                    startActivity(Intent(this, ViecDangLam::class.java))
+                }
             }
-            R.id.layout_viec_dang_cho -> {
-                startActivity(Intent(this, ViecDangCho::class.java))
-            }
-            R.id.layout_viec_dang_co -> {
-                startActivity(Intent(this, ViecDangCo::class.java))
-            }
-            R.id.layout_viec_dang_lam -> {
-                startActivity(Intent(this, ViecDangLam::class.java))
-            }
+        }else{
+            showConnectError()
         }
+
     }
 
     override fun tapAgain() {
@@ -271,7 +298,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     override fun showError() {
-        Log.e("error...","hihi")
+        Log.e("error...", "hihi")
         //dismis progress when loaded data update
         progressDialog.dismiss()
     }
@@ -281,21 +308,23 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         progressDialog.dismiss()
         Var.jobs = jobs
         tNumberTimViec.text = jobs.size.toString()
-        Log.e("findJobSize",jobs.size.toString())
+        Log.e("findJobSize", jobs.size.toString())
     }
+
     override fun returnJobsWaiting(jobs: ArrayList<Job>) {
         //dismis progress when loaded data update
         progressDialog.dismiss()
         Var.jobsWaiting = jobs
         tNumberChoDuyet.text = jobs.size.toString()
-        Log.e("jobsWaitingSize:",jobs.size.toString())
+        Log.e("jobsWaitingSize:", jobs.size.toString())
     }
+
     override fun returnJobsWorking(jobs: ArrayList<Job>) {
         //dismis progress when loaded data update
         progressDialog.dismiss()
         Var.jobsWorking = jobs
         tNumberDangLam.text = jobs.size.toString()
-        Log.e("jobsworkingsize:",jobs.size.toString())
+        Log.e("jobsworkingsize:", jobs.size.toString())
     }
 
     override fun returnJobsDone(jobs: ArrayList<Job>) {
@@ -303,15 +332,14 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
         progressDialog.dismiss()
         Var.jobsDone = jobs
         tNumberDaLam.text = jobs.size.toString()
-        Log.e("jobsdonesie:",jobs.size.toString())
+        Log.e("jobsdonesie:", jobs.size.toString())
     }
 
     override fun showEnableLocation() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Máy của bạn đang tắt chức năng định vị!")
         builder.setMessage("Bạn có muốn bật định vị không?")
-        builder.setPositiveButton("OK") {
-            dialogInterface, i ->
+        builder.setPositiveButton("OK") { dialogInterface, i ->
             dialogInterface.cancel()
             val callIntent = Intent(Settings.ACTION_SETTINGS)
             startActivity(callIntent)
@@ -325,7 +353,7 @@ class Main : AppCompatActivity(), View.OnClickListener, Results {
     }
 
     @SuppressLint("MissingPermission")
-    private fun requestLocationUpdate(){
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback, Looper.myLooper())
+    private fun requestLocationUpdate() {
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper())
     }
 }

@@ -15,4 +15,5 @@ interface Results {
     fun hasPermis(): Boolean
     fun requestPermis()
     fun showDeadLine()
+    fun showErrorGPS()
 }

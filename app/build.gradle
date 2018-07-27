@@ -15,8 +15,8 @@ android {
         applicationId "com.tbm.dogs"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 12
-        versionName "1.1.4"
+        versionCode 13
+        versionName "1.1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
     }
@@ -31,6 +31,7 @@ android {
             renderscriptOptimLevel 3
             zipAlignEnabled true
         }
+
     }
     productFlavors {
     }

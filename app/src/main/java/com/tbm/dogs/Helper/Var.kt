@@ -30,6 +30,8 @@ object Var {
     const val HEADER = "X-API-KEY"
     const val delayLaunchScreen = 1000
     const val delayReloadJob:Long = 60000
+    var lat = ""
+    var lng = ""
     const val tokenLogin = "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"
     const val MAP_DIRECTION_KEY = "AIzaSyC0vuulZn6ijkilXEGajyWBRA85bB7u3L8"
     const val MAP_DIRECTION_URL = "https://maps.googleapis.com/maps/api/directions/json?"

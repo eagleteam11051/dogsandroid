@@ -14,4 +14,5 @@ interface Results {
     fun showDialog()
 
     fun showConnectError()
+    fun showErrorInternet()
 }
